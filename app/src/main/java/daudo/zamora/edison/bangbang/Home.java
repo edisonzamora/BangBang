@@ -41,7 +41,7 @@ public class Home extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        Toast.makeText(getApplicationContext(),"probando de nuevo thayss",Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"probando de nuevo thayssss",Toast.LENGTH_LONG).show();
     }
 
     @Override
