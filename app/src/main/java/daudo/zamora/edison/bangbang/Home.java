@@ -21,9 +21,10 @@ public class Home extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        /**barra de opciones **/
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        /**boton flotante que se quitara **/
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +42,6 @@ public class Home extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        Toast.makeText(getApplicationContext(),"probando de nuevo ahora edison ",Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -53,7 +53,8 @@ public class Home extends AppCompatActivity
             super.onBackPressed();
         }
     }
-
+    /** acciones del toolbar
+     * en estos metodos definims las acciones que realizaan los items de de la barra**/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -75,7 +76,9 @@ public class Home extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
-
+/**--------------------------------------------------------------------------------------**/
+    /** acciones del navegation drawer
+     * en estos metodos definims las acciones que realizaan los items de de la navegacion**/
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
