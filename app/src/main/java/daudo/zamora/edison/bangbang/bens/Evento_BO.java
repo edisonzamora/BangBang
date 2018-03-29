@@ -21,11 +21,11 @@ public class Evento_BO  {
         this.nombre = nombre;
     }
 
-    public String getImagen() {
+    public int getImagen() {
         return imagen;
     }
 
-    public void setImagen(String imagen) {
+    public void setImagen(int imagen) {
         this.imagen = imagen;
     }
 
@@ -39,8 +39,13 @@ public class Evento_BO  {
 
     private int id_evento;
     private String nombre;
-    private String imagen;
     private String comentario;
-    public Evento_BO(){}
+    private int imagen;
 
+    public Evento_BO(int id_evento, String nombre, String comentario, int imagen) {
+        this.id_evento = id_evento;
+        this.nombre = nombre;
+        this.comentario = comentario;
+        this.imagen = imagen;
+    }
 }

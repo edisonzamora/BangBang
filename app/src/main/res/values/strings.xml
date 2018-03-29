@@ -1,8 +1,16 @@
 <resources>
     <string name="app_name">BangBang</string>
+    <!-- TODO: menu drawer -->
+    <string name="Principal">Pricipal</string>
+    <string name="lista">Lista De Eventos</string>
+    <string name="promociones">Promociones</string>
+    <string name="reservas">Reservas</string>
+    <string name="ayu_sug">Ayudas y sugerencias</string>
+    <!-- TODO: menu toolbar -->
+    <string name="action_login">Login</string>
+    <string name="action_Filtrar">Filtrar</string>
+    <string name="action_Buscar">Buscar</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="action_settings">Settings</string>
 </resources>

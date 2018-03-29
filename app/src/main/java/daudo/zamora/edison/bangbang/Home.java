@@ -1,9 +1,10 @@
 package daudo.zamora.edison.bangbang;
 
+
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.view.View;
+import android.support.v4.app.Fragment;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -14,8 +15,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import daudo.zamora.edison.bangbang.fragmentos.GridEventos_Fragment;
+import daudo.zamora.edison.bangbang.fragmentos.ListaEventos_Fragment;
+
 public class Home extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,ListaEventos_Fragment.OnFragmentInteractionListener,GridEventos_Fragment.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,15 +28,6 @@ public class Home extends AppCompatActivity
         /**barra de opciones **/
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        /**boton flotante que se quitara **/
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -42,6 +37,10 @@ public class Home extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        Fragment  fragment=new GridEventos_Fragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.contenedor_main,fragment).commit();
+
     }
 
     @Override
@@ -70,10 +69,16 @@ public class Home extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.login) {
+            Toast.makeText(getApplicationContext(),"opcion1",Toast.LENGTH_LONG).show();
+            return true;
+        }else if(id == R.id.filtrar){
+            Toast.makeText(getApplicationContext(),"opcion2",Toast.LENGTH_LONG).show();
+            return true;
+        }else if(id == R.id.buscar){
+            Toast.makeText(getApplicationContext(),"opcion3",Toast.LENGTH_LONG).show();
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 /**--------------------------------------------------------------------------------------**/
@@ -84,23 +89,33 @@ public class Home extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
+        Fragment  fragment=null;
+        boolean fragment_select=false;
+        if (id == R.id.principal) {
+            fragment=new GridEventos_Fragment();
+            fragment_select=true;
+        } else if (id == R.id.lista) {
+            fragment=new ListaEventos_Fragment();
+            fragment_select=true;
+        } else if (id == R.id.promociones) {
 
         } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
-
         } else if (id == R.id.nav_send) {
 
-        }
+        } else if (id == R.id.ayuda) {
 
+        }
+        if(fragment_select==true){
+            getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_main,fragment).commit();
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
