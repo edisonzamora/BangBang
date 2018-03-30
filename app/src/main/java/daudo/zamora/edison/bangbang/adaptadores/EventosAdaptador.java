@@ -1,11 +1,15 @@
 package daudo.zamora.edison.bangbang.adaptadores;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 import daudo.zamora.edison.bangbang.R;
 import daudo.zamora.edison.bangbang.bens.Evento_BO;
@@ -19,13 +23,15 @@ public class EventosAdaptador extends RecyclerView.Adapter<EventosAdaptador.Even
     private EventoVistaHolder eventoVistaHolder;
     private View.OnClickListener listener;
     public static int i;
+    private Context context;
 
     /**
      * constructor  del adaptador que recibe una lista de objetos Evento_BO
      **/
-    public EventosAdaptador(List<Evento_BO> list, int i) {
+    public EventosAdaptador(List<Evento_BO> list, int i , Context context) {
         this.list = list;
         this.i = i;
+        this.context=context;
     }
 
     @Override
@@ -46,11 +52,14 @@ public class EventosAdaptador extends RecyclerView.Adapter<EventosAdaptador.Even
     public void onBindViewHolder(EventoVistaHolder eventoVistaHolderder, int position) {
         if (i == 1) {
 
-            eventoVistaHolderder.imageView.setImageResource(list.get(position).getImagen());
+           // eventoVistaHolderder.imageView.setImageResource(list.get(position).getImagen());
+            Glide.with(context).load(list.get(position).getImagen()).into(eventoVistaHolderder.imageView);
             eventoVistaHolderder.textViewtitulo.setText(list.get(position).getNombre());
         }
         if (i == 2) {
-            eventoVistaHolderder.imageView.setImageResource(list.get(position).getImagen());
+            //eventoVistaHolderder.imageView.setImageResource(list.get(position).getImagen());
+            Glide.with(context).load(list.get(position).getImagen()).into(eventoVistaHolderder.imageView);
+
             eventoVistaHolderder.textViewtitulo.setText(list.get(position).getNombre());
             eventoVistaHolderder.textViewcomentario.setText(list.get(position).getComentario());
         }

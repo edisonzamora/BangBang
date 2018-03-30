@@ -78,7 +78,7 @@ public class ListaEventos_Fragment extends Fragment {
         cargar_lista(listaeventos);
         recyclerView=(RecyclerView)view.findViewById(R.id.recyclerviewid);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        eventosAdaptador=new EventosAdaptador(listaeventos,2);
+        eventosAdaptador=new EventosAdaptador(listaeventos,2,getContext());
         eventosAdaptador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,8 +127,8 @@ public class ListaEventos_Fragment extends Fragment {
     }
 
     public static void cargar_lista(List lista) {
-        lista.add(new Evento_BO(1,"fiesta 1","bunea fiesta",R.drawable.ic_launcher_background));
-        lista.add(new Evento_BO(2,"fiesta 2","bunea fiesta",R.drawable.ic_launcher_background));
-        lista.add(new Evento_BO(3,"fiesta 3","bunea fiesta",R.drawable.ic_launcher_background));
+        lista.add(new Evento_BO(1,"fiesta 1","bunea fiesta","https://api.androidhive.info/images/glide/medium/deadpool.jpg"));
+        lista.add(new Evento_BO(2,"fiesta 2","bunea fiesta","https://api.androidhive.info/images/glide/medium/deadpool.jpg"));
+        lista.add(new Evento_BO(3,"fiesta 3","bunea fiesta","https://api.androidhive.info/images/glide/medium/deadpool.jpg"));
     }
 }

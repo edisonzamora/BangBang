@@ -79,7 +79,7 @@ public class GridEventos_Fragment extends Fragment {
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
         list=new ArrayList<>();
         ListaEventos_Fragment.cargar_lista(list);
-        EventosAdaptador eventosAdaptador=new EventosAdaptador(list,1);
+        EventosAdaptador eventosAdaptador=new EventosAdaptador(list,1,getContext());
 
         eventosAdaptador.setOnClickListener(new View.OnClickListener() {
             @Override
