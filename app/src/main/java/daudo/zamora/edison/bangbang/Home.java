@@ -36,7 +36,7 @@ public class Home extends AppCompatActivity
         /** refereccia navegacion **/
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        /** fragmento inicial **/
+        /** fragmento inicial prueba**/
         Fragment  fragment=new GridEventos_Fragment();
         getSupportFragmentManager().beginTransaction().add(R.id.contenedor_main,fragment).commit();
 
