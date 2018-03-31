@@ -27,16 +27,16 @@ public class Home extends AppCompatActivity
         /**barra de opciones **/
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        /** drawer **/
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
+        /** refereccia navegacion **/
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
+        /** fragmento inicial **/
         Fragment  fragment=new GridEventos_Fragment();
         getSupportFragmentManager().beginTransaction().add(R.id.contenedor_main,fragment).commit();
 
@@ -51,22 +51,21 @@ public class Home extends AppCompatActivity
             super.onBackPressed();
         }
     }
-    /** acciones del toolbar
-     * en estos metodos definims las acciones que realizaan los items de de la barra**/
+    /**--------------------------------------------------------------------------------------
+     ** acciones del toolbar
+     ** en estos metodos definims las acciones que realizaan los items de de la barra**/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
         if (id == R.id.login) {
             Toast.makeText(getApplicationContext(),"opcion1",Toast.LENGTH_LONG).show();
@@ -80,9 +79,9 @@ public class Home extends AppCompatActivity
         }
         return super.onOptionsItemSelected(item);
     }
-/**--------------------------------------------------------------------------------------**/
-    /** acciones del navegation drawer
-     * en estos metodos definims las acciones que realizaan los items de de la navegacion**/
+    /**--------------------------------------------------------------------------------------
+     ** acciones del navegation drawer
+     ** en estos metodos definims las acciones que realizaan los items de de la navegacion**/
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -112,7 +111,6 @@ public class Home extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
     @Override
     public void onFragmentInteraction(Uri uri) {
 

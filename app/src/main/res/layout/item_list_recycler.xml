@@ -4,15 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:padding="2dp"
+    android:background="@color/colorNegro"
     android:gravity="center">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:background="@drawable/efecto_itens_menu">
         <ImageView
             android:id="@+id/imagen_recycler"
-            android:layout_width="200dp"
+            android:layout_width="150dp"
             android:layout_height="150dp"
             android:src="@mipmap/ic_launcher"
             android:scaleType="center"/>
@@ -27,7 +30,8 @@
                 android:id="@+id/titulo_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="titulo"/>
+                android:text="titulo"
+                style="@style/style_text"/>
             <TextView
                 android:id="@+id/comentario_recycler"
                 android:gravity="center"

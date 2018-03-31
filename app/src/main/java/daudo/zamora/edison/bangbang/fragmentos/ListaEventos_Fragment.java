@@ -26,7 +26,7 @@ import daudo.zamora.edison.bangbang.bens.Evento_BO;
  * Use the {@link ListaEventos_Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ListaEventos_Fragment extends Fragment {
+public class ListaEventos_Fragment extends Fragment  {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -127,8 +127,8 @@ public class ListaEventos_Fragment extends Fragment {
     }
 
     public static void cargar_lista(List lista) {
-        lista.add(new Evento_BO(1,"fiesta 1","bunea fiesta","https://api.androidhive.info/images/glide/medium/deadpool.jpg"));
-        lista.add(new Evento_BO(2,"fiesta 2","bunea fiesta","https://api.androidhive.info/images/glide/medium/deadpool.jpg"));
-        lista.add(new Evento_BO(3,"fiesta 3","bunea fiesta","https://api.androidhive.info/images/glide/medium/deadpool.jpg"));
+        lista.add(new Evento_BO(1,"fiesta 1","bunea fiesta","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
+        lista.add(new Evento_BO(2,"fiesta 2","bunea fiesta","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
+        lista.add(new Evento_BO(3,"fiesta 3","bunea fiesta","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
     }
 }
