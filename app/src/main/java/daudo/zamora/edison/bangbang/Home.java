@@ -1,6 +1,7 @@
 package daudo.zamora.edison.bangbang;
 
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import daudo.zamora.edison.bangbang.Activitys.AllActivity;
 import daudo.zamora.edison.bangbang.fragmentos.GridEventos_Fragment;
 import daudo.zamora.edison.bangbang.fragmentos.ListaEventos_Fragment;
 
@@ -69,6 +71,8 @@ public class Home extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.login) {
             Toast.makeText(getApplicationContext(),"opcion1",Toast.LENGTH_LONG).show();
+            Intent intent=new Intent(this, AllActivity.class);
+            startActivity(intent);
             return true;
         }else if(id == R.id.filtrar){
             Toast.makeText(getApplicationContext(),"opcion2",Toast.LENGTH_LONG).show();

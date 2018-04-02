@@ -3,44 +3,45 @@ package daudo.zamora.edison.bangbang.fragmentos;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.ImageView;
 
 import daudo.zamora.edison.bangbang.R;
-import daudo.zamora.edison.bangbang.adaptadores.EventosAdaptador;
-import daudo.zamora.edison.bangbang.beans.Evento_BO;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ListaEventos_Fragment.OnFragmentInteractionListener} interface
+ * {@link LoginFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ListaEventos_Fragment#newInstance} factory method to
+ * Use the {@link LoginFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ListaEventos_Fragment extends Fragment  {
+public class LoginFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    // TODO: instancias de las vistas a  utilizar
+    private ImageView imageView_login;
+    private EditText edt_nombre;
+    private EditText edt_password;
+    private CheckBox recordar_usuario;
+    private Button btn_aceptar;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    // TODO: variables  de oncreateview
-    private OnFragmentInteractionListener mListener;
-    private RecyclerView recyclerView;
-    private ArrayList<Evento_BO>listaeventos;
-    private EventosAdaptador eventosAdaptador;
 
-    public ListaEventos_Fragment() {
+    private OnFragmentInteractionListener mListener;
+
+    public LoginFragment() {
         // Required empty public constructor
     }
 
@@ -50,17 +51,18 @@ public class ListaEventos_Fragment extends Fragment  {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ListaEventos_Fragment.
+     * @return A new instance of fragment LoginFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ListaEventos_Fragment newInstance(String param1, String param2) {
-        ListaEventos_Fragment fragment = new ListaEventos_Fragment();
+    public static LoginFragment newInstance(String param1, String param2) {
+        LoginFragment fragment = new LoginFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,23 +71,18 @@ public class ListaEventos_Fragment extends Fragment  {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        /**inflamos el fragmento con el layout**/
-        View view=inflater.inflate(R.layout.fragment_lista_eventos_, container, false);
-        listaeventos=new ArrayList<>();
-        cargar_lista(listaeventos);
-        recyclerView=(RecyclerView)view.findViewById(R.id.recyclerviewid);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        eventosAdaptador=new EventosAdaptador(listaeventos,2,getContext());
-        eventosAdaptador.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText( getContext(),"evento: "+listaeventos.get(recyclerView.getChildAdapterPosition(v)).getNombre(),Toast.LENGTH_LONG).show();
-            }
-        });
-        recyclerView.setAdapter(eventosAdaptador);
+        /** Inflamos el layout  de este fragmento  fragment **/
+        View view=inflater.inflate(R.layout.fragment_login, container, false);
+        imageView_login=(ImageView)view.findViewById(R.id.login_imagen);
+        edt_nombre=(EditText)view.findViewById(R.id.login_edit_nombre);
+        edt_password=(EditText)view.findViewById(R.id.login_edit_password);
+        recordar_usuario=(CheckBox)view.findViewById(R.id.chb_recordar_usuario);
+        btn_aceptar=(Button)view.findViewById(R.id.btn_login_aceptar);
+
         return view;
     }
 
@@ -95,6 +92,7 @@ public class ListaEventos_Fragment extends Fragment  {
             mListener.onFragmentInteraction(uri);
         }
     }
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -105,6 +103,7 @@ public class ListaEventos_Fragment extends Fragment  {
                     + " must implement OnFragmentInteractionListener");
         }
     }
+
     @Override
     public void onDetach() {
         super.onDetach();
@@ -124,11 +123,5 @@ public class ListaEventos_Fragment extends Fragment  {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
-    }
-
-    public static void cargar_lista(List lista) {
-        lista.add(new Evento_BO(1,"fiesta 1","bunea fiesta","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
-        lista.add(new Evento_BO(2,"fiesta 2","bunea fiesta","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
-        lista.add(new Evento_BO(3,"fiesta 3","bunea fiesta","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
     }
 }
