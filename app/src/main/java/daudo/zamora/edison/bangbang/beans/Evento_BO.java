@@ -1,4 +1,4 @@
-package daudo.zamora.edison.bangbang.bens;
+package daudo.zamora.edison.bangbang.beans;
 
 /**
  * Created by Edison Zamora on 28/03/2018.
