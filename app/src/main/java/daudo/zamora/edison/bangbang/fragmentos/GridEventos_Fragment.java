@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 import daudo.zamora.edison.bangbang.R;
 import daudo.zamora.edison.bangbang.adaptadores.EventosAdaptador;
-import daudo.zamora.edison.bangbang.bens.Evento_BO;
+import daudo.zamora.edison.bangbang.beans.Evento_BO;
 
 /**
  * A simple {@link Fragment} subclass.

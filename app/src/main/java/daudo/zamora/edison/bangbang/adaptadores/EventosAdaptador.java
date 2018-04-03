@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 import daudo.zamora.edison.bangbang.R;
-import daudo.zamora.edison.bangbang.bens.Evento_BO;
+import daudo.zamora.edison.bangbang.beans.Evento_BO;
 
 /**
  * Created by Edison Zamora on 29/03/2018.
