@@ -25,7 +25,7 @@ public class Home extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_home_login);
         /**barra de opciones **/
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -99,13 +99,9 @@ public class Home extends AppCompatActivity
         } else if (id == R.id.lista) {
             fragment=new ListaEventos_Fragment();
             fragment_select=true;
-        } else if (id == R.id.promociones) {
+        } else if (id == R.id.ajustes) {
 
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_send) {
-
-        } else if (id == R.id.ayuda) {
+        } else if (id == R.id.cerrar_secion) {
 
         }
         if(fragment_select==true){

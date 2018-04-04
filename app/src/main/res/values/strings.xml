@@ -4,11 +4,12 @@
     <string name="layout_login">Iniciar Sesión</string>
 
     <!-- TODO: menu drawer -->
-    <string name="Principal">Pricipal</string>
-    <string name="lista">Lista De Eventos</string>
+    <string name="Principal">HOME</string>
+    <string name="lista">TIKETS</string>
     <string name="promociones">Promociones</string>
     <string name="reservas">Reservas</string>
-    <string name="ayu_sug">Ayudas y sugerencias</string>
+    <string name="ajustes">AJUSTES</string>
+    <string name="cerrar">CERRAR SESION</string>
 
     <!-- TODO: textos utilizados -->
     <string name="login">Sesión</string>
