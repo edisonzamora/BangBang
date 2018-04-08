@@ -19,12 +19,13 @@ import daudo.zamora.edison.bangbang.fragmentos.LoginFragment;
 import daudo.zamora.edison.bangbang.fragmentos.Registro_Fragment;
 
 public class AllActivity extends AppCompatActivity implements LoginFragment.OnFragmentInteractionListener,Registro_Fragment.OnFragmentInteractionListener{
-Fragment fragment;
+    private Fragment fragment;
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all);
-        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+        toolbar=(Toolbar)findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -61,14 +62,13 @@ Fragment fragment;
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
         if (id == R.id.login) {
-            Toast.makeText(getApplicationContext(),"opcion1",Toast.LENGTH_LONG).show();
             getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_main,fragment).commit();
+            toolbar.setTitle(R.string.layout_login);
             return true;
         }else if(id == R.id.registrar) {
-            Toast.makeText(getApplicationContext(), "opcion2", Toast.LENGTH_LONG).show();
             Fragment fragment2 = new Registro_Fragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_main, fragment2).commit();
-
+            toolbar.setTitle(R.string.registrate);
             return true;
         }
         return super.onOptionsItemSelected(item);

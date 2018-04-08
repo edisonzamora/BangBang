@@ -3,8 +3,6 @@
     package="daudo.zamora.edison.bangbang">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <meta-data android:name="Home" android:value="Home" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
