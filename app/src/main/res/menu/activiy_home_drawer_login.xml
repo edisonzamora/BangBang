@@ -16,6 +16,10 @@
             android:id="@+id/ajustes"
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/ajustes" />
+        <item
+            android:id="@+id/cerrar_secion"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/cerrar" />
 
     </group>
 </menu>

@@ -10,8 +10,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
+import daudo.zamora.edison.bangbang.Home;
 import daudo.zamora.edison.bangbang.R;
 import daudo.zamora.edison.bangbang.fragmentos.LoginFragment;
 import daudo.zamora.edison.bangbang.fragmentos.Registro_Fragment;
@@ -23,11 +25,26 @@ Fragment fragment;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all);
         Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         setSupportActionBar(toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(), Home.class);
+                startActivity(intent);
+            }
+        });
         fragment=new LoginFragment();
         FragmentManager manager=getSupportFragmentManager();
        FragmentTransaction transaction= manager.beginTransaction();
        transaction.add(R.id.contenedor_main,fragment).commit();
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.removeItem(R.id.filtrar);
+        menu.removeItem(R.id.buscar);
+        return true;
     }
 
     @Override
@@ -47,14 +64,11 @@ Fragment fragment;
             Toast.makeText(getApplicationContext(),"opcion1",Toast.LENGTH_LONG).show();
             getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_main,fragment).commit();
             return true;
-        }else if(id == R.id.filtrar){
-            Toast.makeText(getApplicationContext(),"opcion2",Toast.LENGTH_LONG).show();
-            Fragment fragment2=new Registro_Fragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_main,fragment2).commit();
+        }else if(id == R.id.registrar) {
+            Toast.makeText(getApplicationContext(), "opcion2", Toast.LENGTH_LONG).show();
+            Fragment fragment2 = new Registro_Fragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_main, fragment2).commit();
 
-            return true;
-        }else if(id == R.id.buscar){
-            Toast.makeText(getApplicationContext(),"opcion3",Toast.LENGTH_LONG).show();
             return true;
         }
         return super.onOptionsItemSelected(item);

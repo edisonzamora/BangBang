@@ -22,5 +22,4 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_home"
         app:menu="@menu/activiy_home_drawer_login" />
-
 </android.support.v4.widget.DrawerLayout>

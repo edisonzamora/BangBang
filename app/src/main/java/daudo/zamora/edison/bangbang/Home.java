@@ -2,8 +2,11 @@ package daudo.zamora.edison.bangbang;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -25,7 +28,7 @@ public class Home extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_login);
+        setContentView(R.layout.activity_home);
         /**barra de opciones **/
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -38,6 +41,7 @@ public class Home extends AppCompatActivity
         /** refereccia navegacion **/
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.getMenu().removeItem(R.id.cerrar_secion);
         /** fragmento inicial prueba**/
         Fragment  fragment=new GridEventos_Fragment();
         getSupportFragmentManager().beginTransaction().add(R.id.contenedor_main,fragment).commit();
@@ -60,6 +64,7 @@ public class Home extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
+        menu.removeItem(R.id.registrar);
         return true;
     }
     @Override
