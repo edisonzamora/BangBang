@@ -25,6 +25,8 @@
     <!-- TODO: botones -->
     <string name="btn_aceptar">Aceptar</string>
     <string name="btn_camcelar">Cancelar</string>
+    <string name="btn_lista">Lista</string>
+    <string name="btn_grid">Cartelera</string>
 
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

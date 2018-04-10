@@ -19,13 +19,16 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import daudo.zamora.edison.bangbang.Activitys.AllActivity;
+import daudo.zamora.edison.bangbang.fragmentos.Buscador_Fragment;
 import daudo.zamora.edison.bangbang.fragmentos.GridEventos_Fragment;
 import daudo.zamora.edison.bangbang.fragmentos.ListaEventos_Fragment;
+import daudo.zamora.edison.bangbang.fragmentos.SelectorModelos_Fragment;
+import daudo.zamora.edison.bangbang.interfases.Opciones;
 
 public class Home extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,ListaEventos_Fragment.OnFragmentInteractionListener,GridEventos_Fragment.OnFragmentInteractionListener{
+        implements Opciones,NavigationView.OnNavigationItemSelectedListener,ListaEventos_Fragment.OnFragmentInteractionListener,GridEventos_Fragment.OnFragmentInteractionListener{
 
-    @Override
+     private Fragment fragment;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
@@ -42,9 +45,12 @@ public class Home extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.getMenu().removeItem(R.id.cerrar_secion);
-        /** fragmento inicial prueba**/
+        /** fragmentos iniciales prueba**/
+        Fragment barr_vista=new SelectorModelos_Fragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.contenedor_barbusqueda,barr_vista).commit();
+
         Fragment  fragment=new GridEventos_Fragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.contenedor_main,fragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_main,fragment).commit();
 
     }
 
@@ -65,6 +71,7 @@ public class Home extends AppCompatActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
         menu.removeItem(R.id.registrar);
+        menu.removeItem(R.id.buscar);
         return true;
     }
     @Override
@@ -75,7 +82,6 @@ public class Home extends AppCompatActivity
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
         if (id == R.id.login) {
-            Toast.makeText(getApplicationContext(),"opcion1",Toast.LENGTH_LONG).show();
             Intent intent=new Intent(this, AllActivity.class);
             startActivity(intent);
             return true;
@@ -83,8 +89,22 @@ public class Home extends AppCompatActivity
             Toast.makeText(getApplicationContext(),"opcion2",Toast.LENGTH_LONG).show();
             return true;
         }else if(id == R.id.buscar){
-            Toast.makeText(getApplicationContext(),"opcion3",Toast.LENGTH_LONG).show();
-            return true;
+           /* Fragment fragment = null;
+            if(mostrarbarrabuscar==false) {
+                Toast.makeText(getApplicationContext(), "opcion3", Toast.LENGTH_LONG).show();
+                fragment=new Buscador_Fragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_barbusqueda, fragment).commit();
+                mostrarbarrabuscar=false;
+                return true;
+            }
+           else if(mostrarbarrabuscar==true){
+                fragment=new SelectorModelos_Fragment();
+                Toast.makeText(getApplicationContext(), "opcion4", Toast.LENGTH_LONG).show();
+                getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_barbusqueda,fragment).commit();
+                mostrarbarrabuscar=true;
+                return true;
+            }*/
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -119,5 +139,27 @@ public class Home extends AppCompatActivity
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
+
+    @Override
+    public void recogeInformacion(int num) {
+        boolean fragment_select=false;
+        if (num==2) {
+            fragment=new GridEventos_Fragment();
+            fragment_select=true;
+        }
+        if (num==1) {
+            fragment = new ListaEventos_Fragment();
+            fragment_select = true;
+        }
+        if(fragment_select==true){
+            getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_main,fragment).commit();
+        }
     }
 }

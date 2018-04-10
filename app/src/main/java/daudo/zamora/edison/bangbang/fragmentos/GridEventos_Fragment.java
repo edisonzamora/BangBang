@@ -19,6 +19,8 @@ import daudo.zamora.edison.bangbang.R;
 import daudo.zamora.edison.bangbang.adaptadores.EventosAdaptador;
 import daudo.zamora.edison.bangbang.beans.Evento_BO;
 
+import static java.security.AccessController.getContext;
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -81,7 +83,7 @@ public class GridEventos_Fragment extends Fragment {
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
         list=new ArrayList<>();
         ListaEventos_Fragment.cargar_lista(list);
-        final EventosAdaptador eventosAdaptador=new EventosAdaptador(list,1,getContext());
+         EventosAdaptador eventosAdaptador=new EventosAdaptador(list,1,getContext());
         eventosAdaptador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
