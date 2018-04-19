@@ -29,8 +29,8 @@ public class LoginFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     // TODO: instancias de las vistas a  utilizar
-    private ImageView imageView_login;
-    private EditText edt_nombre;
+
+    private EditText edt_email;
     private EditText edt_password;
     private CheckBox recordar_usuario;
     private Button btn_aceptar;
@@ -78,11 +78,11 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         /** Inflamos el layout  de este fragmento  fragment **/
         View view=inflater.inflate(R.layout.fragment_login, container, false);
-        imageView_login=(ImageView)view.findViewById(R.id.login_imagen);
-        edt_nombre=(EditText)view.findViewById(R.id.login_edit_nombre);
-        edt_password=(EditText)view.findViewById(R.id.login_edit_password);
+       //lo unico es que he quitado el imagen no hace falta
+        edt_email=(EditText)view.findViewById(R.id.ed_email);//he cambiado para email
+        edt_password=(EditText)view.findViewById(R.id.ed_Pass);
         recordar_usuario=(CheckBox)view.findViewById(R.id.chb_recordar_usuario);
-        btn_aceptar=(Button)view.findViewById(R.id.btn_login_aceptar);
+        btn_aceptar=(Button)view.findViewById(R.id.btn_login_aceptar);//está hecho el cambio
 
         return view;
     }
