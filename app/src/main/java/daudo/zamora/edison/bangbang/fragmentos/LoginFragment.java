@@ -38,6 +38,7 @@ public class LoginFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    long a;// cambio
 
     private OnFragmentInteractionListener mListener;
 
@@ -85,7 +86,7 @@ public class LoginFragment extends Fragment {
 
         return view;
     }
-
+//no he cambiado nada aun
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
@@ -121,7 +122,7 @@ public class LoginFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
+
         void onFragmentInteraction(Uri uri);
     }
 }
