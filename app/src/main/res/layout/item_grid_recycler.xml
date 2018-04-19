@@ -14,11 +14,10 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@color/colorPrimary">
-
         <ImageView
             android:id="@+id/imagen_recycler2"
             android:layout_width="200dp"
-            android:layout_height="300dp"
+            android:layout_height="250dp"
             android:scaleType="center"
             android:src="@mipmap/ic_launcher" />
         <TextView
@@ -31,5 +30,4 @@
             style="@style/style_text"
             android:text="titulo"/>
     </LinearLayout>
-
 </LinearLayout>

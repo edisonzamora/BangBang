@@ -2,29 +2,35 @@
     <!-- TODO:titulos layouts -->
     <string name="app_name">BangBang</string>
     <string name="layout_login">Iniciar Sesión</string>
+    <string name="layout_informacion">Infornacion</string>
 
     <!-- TODO: menu drawer -->
-    <string name="Principal">Pricipal</string>
-    <string name="lista">Lista De Eventos</string>
+    <string name="Principal">HOME</string>
+    <string name="lista">TIKETS</string>
     <string name="promociones">Promociones</string>
-    <string name="reservas">Reservas</string>
-    <string name="ayu_sug">Ayudas y sugerencias</string>
+    <string name="reservas">RESERVAS</string>
+    <string name="ajustes">AJUSTES</string>
+    <string name="cerrar">CERRAR SESION</string>
 
-    <!-- TODO: textos utilizados -->
+    <!-- TODO: textos toolbar -->
     <string name="login">Sesión</string>
     <string name="Filtrar">Filtrar</string>
     <string name="Buscar">Buscar</string>
     <string name="contraseña">Contraseña</string>
     <string name="nombre">Nombre</string>
     <string name="recordar_usuario">Recordar usuario</string>
+    <string name="registrate">Registrate</string>
+
+
+    <!-- TODO: botones -->
     <string name="btn_aceptar">Aceptar</string>
     <string name="btn_camcelar">Cancelar</string>
+    <string name="btn_lista">Lista</string>
+    <string name="btn_grid">Cartelera</string>
+
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- TODO: arrays uso -->
     <string-array name="ciudades">
@@ -33,8 +39,6 @@
         <item>Bilbao</item>
         <item>Malloreca</item>
         <item>canarias</item>
-
-
     </string-array>
 
 
