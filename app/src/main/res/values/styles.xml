@@ -22,6 +22,20 @@
         <item name="android:fontFamily">cursive</item>
         <item name="android:textColor">@color/colorBlano</item>
     </style>
+    <style name="botones">
+        <item name="android:background">@drawable/efecto_botones</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">20dp</item>
+
+    </style>
+    <style name="CheckBoxIndigo">
+        <item name="colorAccent">@color/colorAccent</item>
+
+
+
+    </style>
 
 
 </resources>
