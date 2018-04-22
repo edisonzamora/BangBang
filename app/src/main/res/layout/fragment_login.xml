@@ -57,15 +57,13 @@
                 android:layout_height="wrap_content">
                 <CheckBox
                     android:id="@+id/chb_recordar_usuario"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/recordar_usuario"/>
+                    android:text="@string/recordar_usuario"
+                    style="@style/chechbox"/>
             </LinearLayout>
             <Button
                 android:id="@+id/btn_login_aceptar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btn_aceptar"/>
+                android:text="@string/btn_aceptar"
+                style="@style/botones"/>
         </LinearLayout>
 
     </LinearLayout>

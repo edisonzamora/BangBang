@@ -126,8 +126,7 @@
             android:padding="3dp">
             <CheckBox
                 android:id="@+id/checkbox_registro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/chechbox"
                 android:text="Soy mayor de ediad"/>
         </LinearLayout>
         <LinearLayout
@@ -138,15 +137,11 @@
             android:orientation="horizontal">
             <Button
                 android:id="@+id/btn_registro_aceptar"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/botones"
                 android:text="@string/btn_aceptar"/>
             <Button
                 android:id="@+id/btn_registro_camcelar"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/botones"
                 android:text="@string/btn_camcelar"/>
 
         </LinearLayout>
