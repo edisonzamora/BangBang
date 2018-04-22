@@ -29,8 +29,8 @@ public class LoginFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     // TODO: instancias de las vistas a  utilizar
-    private ImageView imageView_login;
-    private EditText edt_nombre;
+
+    private EditText edt_email;
     private EditText edt_password;
     private CheckBox recordar_usuario;
     private Button btn_aceptar;
@@ -38,6 +38,7 @@ public class LoginFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    long a;// cambio
 
     private OnFragmentInteractionListener mListener;
 
@@ -71,21 +72,21 @@ public class LoginFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+/**aqui se le dara los eventos a los botones**/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         /** Inflamos el layout  de este fragmento  fragment **/
         View view=inflater.inflate(R.layout.fragment_login, container, false);
-        imageView_login=(ImageView)view.findViewById(R.id.login_imagen);
-        edt_nombre=(EditText)view.findViewById(R.id.login_edit_nombre);
-        edt_password=(EditText)view.findViewById(R.id.login_edit_password);
+       //lo unico es que he quitado el imagen no hace falta
+        edt_email=(EditText)view.findViewById(R.id.ed_email);//he cambiado para email
+        edt_password=(EditText)view.findViewById(R.id.ed_Pass);
         recordar_usuario=(CheckBox)view.findViewById(R.id.chb_recordar_usuario);
-        btn_aceptar=(Button)view.findViewById(R.id.btn_login_aceptar);
+        btn_aceptar=(Button)view.findViewById(R.id.btn_login_aceptar);//está hecho el cambio
 
         return view;
     }
-
+//no he cambiado nada aun
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
@@ -121,7 +122,7 @@ public class LoginFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
+
         void onFragmentInteraction(Uri uri);
     }
 }

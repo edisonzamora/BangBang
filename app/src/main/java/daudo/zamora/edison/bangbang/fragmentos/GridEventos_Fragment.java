@@ -1,6 +1,7 @@
 package daudo.zamora.edison.bangbang.fragmentos;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,9 +14,12 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import daudo.zamora.edison.bangbang.Activitys.InformacionActivity;
 import daudo.zamora.edison.bangbang.R;
 import daudo.zamora.edison.bangbang.adaptadores.EventosAdaptador;
 import daudo.zamora.edison.bangbang.beans.Evento_BO;
+
+import static java.security.AccessController.getContext;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -79,12 +83,14 @@ public class GridEventos_Fragment extends Fragment {
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
         list=new ArrayList<>();
         ListaEventos_Fragment.cargar_lista(list);
-        EventosAdaptador eventosAdaptador=new EventosAdaptador(list,1,getContext());
-
+         EventosAdaptador eventosAdaptador=new EventosAdaptador(list,1,getContext());
         eventosAdaptador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText( getContext(),"evento: "+list.get(recyclerView.getChildAdapterPosition(v)).getNombre(),Toast.LENGTH_LONG).show();
+                Intent intent=new Intent(getContext(), InformacionActivity.class);
+                Evento_BO evento_bo= list.get(recyclerView.getChildAdapterPosition(v));
+                intent.putExtra("informacion",evento_bo);
+                startActivity(intent);
 
             }
         });
