@@ -32,7 +32,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:id="@+id/login_edit_nombre"
+                    android:id="@+id/ed_email"
                     android:hint="@string/nombre"
                      />
             </LinearLayout>
@@ -46,7 +46,7 @@
                     android:text="@string/contraseña"
                     android:gravity="center"/>
                 <EditText
-                    android:id="@+id/login_edit_password"
+                    android:id="@+id/ed_Pass"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:hint="@string/contraseña"
