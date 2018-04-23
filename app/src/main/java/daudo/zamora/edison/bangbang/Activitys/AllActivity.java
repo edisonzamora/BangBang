@@ -33,7 +33,7 @@ public class AllActivity extends AppCompatActivity implements LoginFragment.OnFr
             public void onClick(View v) {
                 Intent intent=new Intent(getApplicationContext(), Home.class);
                 startActivity(intent);
-            }
+            }// cambios en el layout
         });
         fragment=new LoginFragment();
         FragmentManager manager=getSupportFragmentManager();
