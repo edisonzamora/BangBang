@@ -96,6 +96,7 @@ public class LoginFragment extends Fragment {
             mListener.onFragmentInteraction(uri);
         }
     }//CAMBIOS EN EL LAYOUT
+    //cambios
 
     @Override
     public void onAttach(Context context) {
