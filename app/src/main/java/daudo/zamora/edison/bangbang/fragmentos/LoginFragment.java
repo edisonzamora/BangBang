@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import daudo.zamora.edison.bangbang.R;
 
@@ -34,6 +35,7 @@ public class LoginFragment extends Fragment {
     private EditText edt_password;
     private CheckBox recordar_usuario;
     private Button btn_aceptar;
+    private TextView Signup;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -83,6 +85,7 @@ public class LoginFragment extends Fragment {
         edt_password=(EditText)view.findViewById(R.id.ed_Pass);
         recordar_usuario=(CheckBox)view.findViewById(R.id.chb_recordar_usuario);
         btn_aceptar=(Button)view.findViewById(R.id.btn_login_aceptar);//está hecho el cambio
+        Signup=(TextView) view.findViewById(R.id.tv_signup);
 
         return view;
     }
@@ -92,7 +95,8 @@ public class LoginFragment extends Fragment {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
-    }
+    }//CAMBIOS EN EL LAYOUT
+    //cambios
 
     @Override
     public void onAttach(Context context) {
