@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import daudo.zamora.edison.bangbang.Home;
 import daudo.zamora.edison.bangbang.R;
+import daudo.zamora.edison.bangbang.beans.EventBean;
 import daudo.zamora.edison.bangbang.beans.Evento_BO;
 
 public class InformacionActivity extends AppCompatActivity {
@@ -34,7 +35,8 @@ public class InformacionActivity extends AppCompatActivity {
         });
             TextView textView=(TextView)findViewById(R.id.text_informacion_titulo);
         Bundle iBundle=getIntent().getExtras();
-       Evento_BO evento_bo= (Evento_BO) iBundle.getSerializable("informacion");
+        EventBean evento_bo= (EventBean) iBundle.getSerializable("informacion");
+        evento_bo.getDireccion().getCalle();
        textView.setText(evento_bo.getNombre().toString());
     }
 }
