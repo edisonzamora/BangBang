@@ -7,18 +7,17 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import daudo.zamora.edison.bangbang.Activitys.InformacionActivity;
 import daudo.zamora.edison.bangbang.R;
 import daudo.zamora.edison.bangbang.adaptadores.EventosAdaptador;
-import daudo.zamora.edison.bangbang.beans.EventBean;
-
+import daudo.zamora.edison.bangbang.beans.Evento_BO;
 
 import static java.security.AccessController.getContext;
 
@@ -42,7 +41,7 @@ public class GridEventos_Fragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     private RecyclerView recyclerView;
-    private ArrayList<EventBean>list;
+    private ArrayList<Evento_BO>list;
 
     public GridEventos_Fragment() {
         // Required empty public constructor
@@ -89,10 +88,8 @@ public class GridEventos_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getContext(), InformacionActivity.class);
-                EventBean evento= list.get(recyclerView.getChildAdapterPosition(v));
-                evento.getDireccion().getCalle();
-                Log.i("INFORMACION", " direccion ");
-                intent.putExtra("informacion",evento);
+                Evento_BO evento_bo= list.get(recyclerView.getChildAdapterPosition(v));
+                intent.putExtra("informacion",evento_bo);
                 startActivity(intent);
 
             }

@@ -7,20 +7,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 
 import java.util.List;
-
 import daudo.zamora.edison.bangbang.R;
-import daudo.zamora.edison.bangbang.beans.EventBean;
-
+import daudo.zamora.edison.bangbang.beans.Evento_BO;
 
 /**
  * Created by Edison Zamora on 29/03/2018.
  */
 
 public class EventosAdaptador extends RecyclerView.Adapter<EventosAdaptador.EventoVistaHolder> implements View.OnClickListener {
-    private List<EventBean> list;
+    private List<Evento_BO> list;
     private EventoVistaHolder eventoVistaHolder;
     private View.OnClickListener listener;
     public static int i;
@@ -29,7 +28,7 @@ public class EventosAdaptador extends RecyclerView.Adapter<EventosAdaptador.Even
     /**
      * constructor  del adaptador que recibe una lista de objetos Evento_BO
      **/
-    public EventosAdaptador(List<EventBean> list, int i , Context context) {
+    public EventosAdaptador(List<Evento_BO> list, int i , Context context) {
         this.list = list;
         this.i = i;
         this.context=context;
