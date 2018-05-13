@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import daudo.zamora.edison.bangbang.Activitys.InformacionActivity;
 import daudo.zamora.edison.bangbang.R;
 import daudo.zamora.edison.bangbang.adaptadores.EventosAdaptador;
+import daudo.zamora.edison.bangbang.beans.EventoBean;
 import daudo.zamora.edison.bangbang.beans.Evento_BO;
 
 import static java.security.AccessController.getContext;
@@ -41,7 +42,7 @@ public class GridEventos_Fragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     private RecyclerView recyclerView;
-    private ArrayList<Evento_BO>list;
+    private ArrayList<EventoBean>list;
 
     public GridEventos_Fragment() {
         // Required empty public constructor
@@ -88,8 +89,8 @@ public class GridEventos_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getContext(), InformacionActivity.class);
-                Evento_BO evento_bo= list.get(recyclerView.getChildAdapterPosition(v));
-                intent.putExtra("informacion",evento_bo);
+                EventoBean evento= list.get(recyclerView.getChildAdapterPosition(v));
+                intent.putExtra("informacion",evento);
                 startActivity(intent);
 
             }

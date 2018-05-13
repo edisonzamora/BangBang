@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 import daudo.zamora.edison.bangbang.R;
+import daudo.zamora.edison.bangbang.beans.EventoBean;
 import daudo.zamora.edison.bangbang.beans.Evento_BO;
 
 /**
@@ -19,7 +20,7 @@ import daudo.zamora.edison.bangbang.beans.Evento_BO;
  */
 
 public class EventosAdaptador extends RecyclerView.Adapter<EventosAdaptador.EventoVistaHolder> implements View.OnClickListener {
-    private List<Evento_BO> list;
+    private List<EventoBean> list;
     private EventoVistaHolder eventoVistaHolder;
     private View.OnClickListener listener;
     public static int i;
@@ -28,7 +29,7 @@ public class EventosAdaptador extends RecyclerView.Adapter<EventosAdaptador.Even
     /**
      * constructor  del adaptador que recibe una lista de objetos Evento_BO
      **/
-    public EventosAdaptador(List<Evento_BO> list, int i , Context context) {
+    public EventosAdaptador(List<EventoBean> list, int i , Context context) {
         this.list = list;
         this.i = i;
         this.context=context;

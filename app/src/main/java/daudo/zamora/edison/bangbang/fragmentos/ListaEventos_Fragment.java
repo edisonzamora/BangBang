@@ -18,6 +18,7 @@ import java.util.List;
 import daudo.zamora.edison.bangbang.Activitys.InformacionActivity;
 import daudo.zamora.edison.bangbang.R;
 import daudo.zamora.edison.bangbang.adaptadores.EventosAdaptador;
+import daudo.zamora.edison.bangbang.beans.EventoBean;
 import daudo.zamora.edison.bangbang.beans.Evento_BO;
 
 /**
@@ -39,7 +40,7 @@ public class ListaEventos_Fragment extends Fragment  {
     // TODO: variables  de oncreateview
     private OnFragmentInteractionListener mListener;
     private RecyclerView recyclerView;
-    private ArrayList<Evento_BO>listaeventos;
+    private ArrayList<EventoBean>listaeventos;
     private EventosAdaptador eventosAdaptador;
 
     public ListaEventos_Fragment() {
@@ -87,8 +88,8 @@ public class ListaEventos_Fragment extends Fragment  {
 
                 Toast.makeText( getContext(),"evento: "+listaeventos.get(recyclerView.getChildAdapterPosition(v)).getNombre(),Toast.LENGTH_LONG).show();
                 Intent intent=new Intent(getContext(), InformacionActivity.class);
-                Evento_BO evento_bo= listaeventos.get(recyclerView.getChildAdapterPosition(v));
-                intent.putExtra("informacion",evento_bo);
+                EventoBean evento= listaeventos.get(recyclerView.getChildAdapterPosition(v));
+                intent.putExtra("informacion",evento);
                 startActivity(intent);
 
             }
@@ -135,8 +136,8 @@ public class ListaEventos_Fragment extends Fragment  {
     }
 
     public static void cargar_lista(List lista) {
-        lista.add(new Evento_BO(1,"fiesta 1","bunea fiesta","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
-        lista.add(new Evento_BO(2,"fiesta 2","bunea fiesta","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
-        lista.add(new Evento_BO(3,"fiesta 3","bunea fiesta","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
+        lista.add(new EventoBean(1,"fiesta 1","bunea fiesta","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
+        lista.add(new EventoBean(2,"fiesta 2","bunea fiesta","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
+        lista.add(new EventoBean(3,"fiesta 3","bunea fiesta","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
     }
 }
