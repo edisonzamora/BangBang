@@ -23,7 +23,7 @@
         <item name="android:textColor">@color/colorBlano</item>
     </style>
     <style name="botones">
-<<<<<<< HEAD
+
         <item name="android:background">@drawable/efecto_botones</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_margin">10dp</item>
