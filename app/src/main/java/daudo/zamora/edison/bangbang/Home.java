@@ -18,11 +18,13 @@ import daudo.zamora.edison.bangbang.Activitys.AllActivity;
 import daudo.zamora.edison.bangbang.fragmentos.Ajustes_Fragment;
 import daudo.zamora.edison.bangbang.fragmentos.GridEventos_Fragment;
 import daudo.zamora.edison.bangbang.fragmentos.ListaEventos_Fragment;
+import daudo.zamora.edison.bangbang.fragmentos.LoginFragment;
+import daudo.zamora.edison.bangbang.fragmentos.Registro_Fragment;
 import daudo.zamora.edison.bangbang.fragmentos.SelectorModelos_Fragment;
 import daudo.zamora.edison.bangbang.interfases.Opciones;
 
 public class Home extends AppCompatActivity
-        implements Opciones,NavigationView.OnNavigationItemSelectedListener,ListaEventos_Fragment.OnFragmentInteractionListener,GridEventos_Fragment.OnFragmentInteractionListener{
+        implements Opciones , NavigationView.OnNavigationItemSelectedListener,ListaEventos_Fragment.OnFragmentInteractionListener,GridEventos_Fragment.OnFragmentInteractionListener{
 
       Fragment fragment1;
     protected void onCreate(Bundle savedInstanceState) {

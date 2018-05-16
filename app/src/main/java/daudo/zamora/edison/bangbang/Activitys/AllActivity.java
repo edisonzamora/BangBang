@@ -17,8 +17,9 @@ import daudo.zamora.edison.bangbang.Home;
 import daudo.zamora.edison.bangbang.R;
 import daudo.zamora.edison.bangbang.fragmentos.LoginFragment;
 import daudo.zamora.edison.bangbang.fragmentos.Registro_Fragment;
+import daudo.zamora.edison.bangbang.interfases.Opciones;
 
-public class AllActivity extends AppCompatActivity implements LoginFragment.OnFragmentInteractionListener,Registro_Fragment.OnFragmentInteractionListener{
+public class AllActivity extends AppCompatActivity implements Opciones , LoginFragment.OnFragmentInteractionListener,Registro_Fragment.OnFragmentInteractionListener{
     private Fragment fragment;
     private Toolbar toolbar;
     @Override
@@ -77,5 +78,17 @@ public class AllActivity extends AppCompatActivity implements LoginFragment.OnFr
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    @Override
+    public void recogeInformacion(int num) {
+        boolean fragment_select=false;
+        if (num==1) {
+            fragment = new Registro_Fragment();
+            fragment_select = true;
+        }
+        if(fragment_select==true){
+            getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_main,fragment).commit();
+        }
     }
 }

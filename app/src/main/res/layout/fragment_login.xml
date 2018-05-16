@@ -1,122 +1,38 @@
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   android:background="@drawable/fondo3"
+    android:background="@drawable/fondo3"
+    android:gravity="center"
     tools:context="daudo.zamora.edison.bangbang.fragmentos.LoginFragment">
-
-            <LinearLayout
-               android:gravity="center"
-               android:layout_marginTop="58dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                >
-
-//nuevos
-                <EditText
-<<<<<<< HEAD
-
-                    android:id="@+id/ed_email"
-                    android:layout_width="300dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
-                    android:hint="Email"
-                    android:drawableLeft="@drawable/ic_email"
-                    android:inputType="textEmailAddress"
-                    android:textColorHint="#FFFFFF"
-                    android:background="@drawable/editstyle" />
-
-                <EditText
-                    android:id="@+id/ed_Pass"
-                    android:layout_width="300dp"
-                    android:layout_height="60dp"
-                    android:layout_marginHorizontal="10dp"
-                    android:hint="Password"
-                    android:drawableLeft="@drawable/ic_action_name"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="30dp"
-                    android:inputType="textPassword"
-                    android:textColorHint="#FFFFFF"
-                    android:background="@drawable/editstyle"/>
-
-                <CheckBox
-                    android:id="@+id/chb_recordar_usuario"
-                    android:layout_width="300dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginHorizontal="10dp"
-                    android:text="Remember me"
-                    android:textColorHint="#fff"
-                    android:textColor="#fff"
-                    android:theme="@style/CheckBoxIndigo"
-
-                    />
-
-                <Button
-
-                   android:id="@+id/btn_login_aceptar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="90dp"
-
-                    android:text="Login"
-                    android:textColor="#fff"
-                    style="@style/botones"/>
-
-                <TextView
-                    android:id="@+id/tv_signup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sign Up"
-                    android:textSize="20dp"
-                    android:layout_marginTop="9dp"
-                    android:textColor="#fff"
-                    android:layout_gravity="center"
-                    android:onClick="onClick"
-                    android:clickable="true"
-                    />
-            </LinearLayout>
-=======
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:id="@+id/ed_email"
-                    android:hint="@string/nombre"
-                     />
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/linea_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="@string/contraseña"
-                    android:gravity="center"/>
-                <EditText
-                    android:id="@+id/ed_Pass"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:hint="@string/contraseña"
-                    android:gravity="center"
-                    android:inputType="textPassword"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <CheckBox
-                    android:id="@+id/chb_recordar_usuario"
-                    android:text="@string/recordar_usuario"
-                    style="@style/chechbox"/>
-            </LinearLayout>
-            <Button
-                android:id="@+id/btn_login_aceptar"
-                android:text="@string/btn_aceptar"
-                style="@style/botones"/>
-        </LinearLayout>
->>>>>>> 68424d3b27c293939724adfa8fd9e3c974177371
-
-</RelativeLayout>
+    <LinearLayout
+       android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/ed_email"
+            style="@style/content_text_email"/>
+        <EditText
+            android:id="@+id/ed_Pass"
+            style="@style/content_text_pass"/>
+        <CheckBox
+            android:id="@+id/chb_recordar_usuario"
+             style="@style/content_text"
+            android:hint="@string/recordar"/>
+        <Button
+           android:id="@+id/btn_login_aceptar"
+            style="@style/botones"
+            android:text="@string/login_1"/>
+        <TextView
+            android:id="@+id/tv_signup"
+            android:padding="19dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/registrar_1"
+            android:textSize="20dp"
+            android:textColor="#fff"
+            android:gravity="center"/>
+    </LinearLayout>
+</LinearLayout>

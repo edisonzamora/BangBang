@@ -78,6 +78,9 @@ public class Registro_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         /** inflamos los campos y los botonos que vamosautilizar **/
         View view=inflater.inflate(R.layout.fragment_registro, container, false);
+        Button boton=(Button)view.findViewById(R.id.boton_reg);
+
+
         /**referenciams aqui lasvistas**/
 
         return view;

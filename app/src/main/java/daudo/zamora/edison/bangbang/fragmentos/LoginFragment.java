@@ -1,6 +1,7 @@
 package daudo.zamora.edison.bangbang.fragmentos;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -13,7 +14,10 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import daudo.zamora.edison.bangbang.Activitys.AllActivity;
+import daudo.zamora.edison.bangbang.Home;
 import daudo.zamora.edison.bangbang.R;
 
 /**
@@ -86,9 +90,18 @@ public class LoginFragment extends Fragment {
         recordar_usuario=(CheckBox)view.findViewById(R.id.chb_recordar_usuario);
         btn_aceptar=(Button)view.findViewById(R.id.btn_login_aceptar);//está hecho el cambio
         Signup=(TextView) view.findViewById(R.id.tv_signup);
+        Signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(),"long",Toast.LENGTH_LONG).show();
+               ((AllActivity)getContext()).recogeInformacion(1);
+            }
+        });
 
         return view;
+
     }
+
 //no he cambiado nada aun
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -114,7 +127,13 @@ public class LoginFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
-
+    public void register(View v)
+    {
+        Intent i=new Intent();
+        i.setClass(this.Signup.getContext(),Registro_Fragment.class);
+        //COMO PUEDO ABRIR EL LAYOUT DE REGISTRO
+        startActivity(i);
+    }
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
