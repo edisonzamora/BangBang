@@ -9,35 +9,37 @@
     android:gravity="center">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
+        android:padding="2dp"
         android:orientation="horizontal"
         android:gravity="center"
         android:background="@drawable/efecto_itens_menu">
         <ImageView
-            android:id="@+id/imagen_recycler"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_margin="5dp"
+            android:id="@+id/imagen_e"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:src="@mipmap/ic_launcher"
             android:scaleType="center"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_gravity="center">
-            <TextView
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:id="@+id/titulo_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="titulo"
-                style="@style/style_text"/>
-            <TextView
-                android:id="@+id/comentario_recycler"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="comentario hacerca del evento"/>
+            android:orientation="vertical">
+                <TextView android:id="@+id/titulo_recycler_e"
+                style="@style/style_Titulo"/>
+                <LinearLayout
+                    style="@style/style_layout_list">
+                        <TextView style="@style/style_fecha"
+                            android:text="@string/fecha_evento"/>
+                        <TextView style="@style/style_fecha"
+                            android:id="@+id/fecha_evento_e"
+                            android:text="fecha" />
+                </LinearLayout>
+                <LinearLayout style="@style/style_layout_list">
+                        <TextView style="@style/style_comentario"
+                            android:id="@+id/coemntario_e"
+                            android:text="comentario sobre evento"/>
+                </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

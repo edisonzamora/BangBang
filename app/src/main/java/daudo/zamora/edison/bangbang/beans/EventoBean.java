@@ -58,12 +58,13 @@ public class EventoBean implements Serializable {
         this.direccion = direccion;
     }
 
-    public EventoBean(int id_evento, String nombre, String comentario,/*falta la fecha*/ String imagen) {
+    public EventoBean(int id_evento, String nombre, String fecha, String comentario,String imagen) {
         this.id_evento = id_evento;
         this.nombre = nombre;
         this.comentario = comentario;
         this.imagen = imagen;
         this.direccion= new DireccionBean();
+        this.fecha=fecha;
 
     }
 

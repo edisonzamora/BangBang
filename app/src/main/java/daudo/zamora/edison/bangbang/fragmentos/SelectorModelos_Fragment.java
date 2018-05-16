@@ -70,7 +70,7 @@ public class SelectorModelos_Fragment  extends Fragment{
         boton_lista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Home)getContext()).recogeInformacion(1);
+                //((Home)getContext()).recogeInformacion(1);
                 //boton_grig.setBackgroundColor(Color.BLACK);
                 //boton_lista.setBackgroundColor(Color.RED);
 
@@ -83,7 +83,7 @@ public class SelectorModelos_Fragment  extends Fragment{
         boton_grig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Home)getContext()).recogeInformacion(2);
+                //((Home)getContext()).recogeInformacion(2);
                 //boton_lista.setBackgroundColor(Color.BLACK);
                 //boton_grig.setBackgroundColor(Color.RED);
 

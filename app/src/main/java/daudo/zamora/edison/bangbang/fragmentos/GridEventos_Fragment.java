@@ -10,26 +10,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
 import java.util.ArrayList;
-
 import daudo.zamora.edison.bangbang.Activitys.InformacionActivity;
 import daudo.zamora.edison.bangbang.R;
 import daudo.zamora.edison.bangbang.adaptadores.EventosAdaptador;
 import daudo.zamora.edison.bangbang.beans.EventoBean;
-import daudo.zamora.edison.bangbang.beans.Evento_BO;
 
-import static java.security.AccessController.getContext;
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link GridEventos_Fragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link GridEventos_Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class GridEventos_Fragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -39,10 +25,11 @@ public class GridEventos_Fragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
     private OnFragmentInteractionListener mListener;
     private RecyclerView recyclerView;
-    private ArrayList<EventoBean>list;
+    private ArrayList<EventoBean>lista;
+    private EventoBean evento;
+    private EventosAdaptador eventosAdaptador;
 
     public GridEventos_Fragment() {
         // Required empty public constructor
@@ -82,14 +69,14 @@ public class GridEventos_Fragment extends Fragment {
         View vista=inflater.inflate(R.layout.fragment_grid_eventos_,container,false);
         recyclerView=(RecyclerView)vista.findViewById(R.id.recyclerviewid2);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
-        list=new ArrayList<>();
-        ListaEventos_Fragment.cargar_lista(list);
-         EventosAdaptador eventosAdaptador=new EventosAdaptador(list,1,getContext());
-        eventosAdaptador.setOnClickListener(new View.OnClickListener() {
+        lista=new ArrayList<>();
+        lista_eventos_mock(lista);
+          eventosAdaptador=new EventosAdaptador(lista,1,getContext());
+           eventosAdaptador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getContext(), InformacionActivity.class);
-                EventoBean evento= list.get(recyclerView.getChildAdapterPosition(v));
+                Intent intent=new Intent( getContext() , InformacionActivity.class);
+                 evento= lista.get(recyclerView.getChildAdapterPosition(v));
                 intent.putExtra("informacion",evento);
                 startActivity(intent);
 
@@ -124,18 +111,17 @@ public class GridEventos_Fragment extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+
     }
-}
+    private void lista_eventos_mock(ArrayList lista) {
+        lista.add(new EventoBean(1,"FIESTA1","2018-04-12","BUENA FIESTA 1","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
+        lista.add(new EventoBean(2,"FIESTA2","2018-04-12","BUENA FIETSA 2","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
+        lista.add(new EventoBean(3,"FIESTA3","2018-04-12","BUENA FIETSA 3","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
+        lista.add(new EventoBean(4,"FIESTA4","2018-04-12","BUENA FIESTA 4","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
+    }
+
+    }
+

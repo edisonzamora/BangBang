@@ -1,6 +1,8 @@
 package daudo.zamora.edison.bangbang.beans;
 
-public class DireccionBean {
+import java.io.Serializable;
+
+public class DireccionBean implements Serializable{
     public String getCalle() {
         return Calle;
     }

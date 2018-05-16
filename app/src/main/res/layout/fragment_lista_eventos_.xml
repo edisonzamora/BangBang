@@ -3,10 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorNegro"
     tools:context="daudo.zamora.edison.bangbang.fragmentos.ListaEventos_Fragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerviewid"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="@color/colorNegro"/>
 </android.support.constraint.ConstraintLayout>

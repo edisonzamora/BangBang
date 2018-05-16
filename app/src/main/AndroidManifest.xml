@@ -3,6 +3,7 @@
     package="daudo.zamora.edison.bangbang">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -32,7 +33,6 @@
             android:label="@string/layout_informacion"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="portrait"/>
-        <activity android:name=".Activitys.CalendarioActivity" />
     </application>
 
 </manifest>

@@ -5,8 +5,12 @@ import java.io.Serializable;
 public class ReservaBean implements Serializable{
     private String id_reserva;
     private String id_usuario;
+    private String nombre_evento;
+    private String fechaReserva;
+    private String fechaEvento;
+    private String imagen;
 
-    public ReservaBean(String id_reserva, String id_usuario, String nombre_evento, String fechaReserva, String fechaEvento, String imagen) {
+    public ReservaBean(String id_reserva, String id_usuario, String nombre_evento, String fechaEvento, String fechaReserva, String imagen) {
         this.id_reserva = id_reserva;
         this.id_usuario = id_usuario;
         this.nombre_evento = nombre_evento;
@@ -14,7 +18,6 @@ public class ReservaBean implements Serializable{
         this.fechaEvento = fechaEvento;
         this.imagen = imagen;
     }
-
     public String getNombre_evento() {
         return nombre_evento;
     }
@@ -23,10 +26,7 @@ public class ReservaBean implements Serializable{
         this.nombre_evento = nombre_evento;
     }
 
-    private String nombre_evento;
-    private String fechaReserva;
-    private String fechaEvento;
-    private String imagen;
+
 
 
     public String getFechaReserva() {

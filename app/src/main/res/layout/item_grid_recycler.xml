@@ -9,25 +9,35 @@
     <LinearLayout
         android:layout_gravity="center"
         android:gravity="center"
-        android:padding="2dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@color/colorPrimary">
+        <TextView
+        android:id="@+id/titulo_recycler2"
+        style="@style/style_Titulo"
+        android:text="titulo"/>
         <ImageView
             android:id="@+id/imagen_recycler2"
             android:layout_width="200dp"
             android:layout_height="250dp"
             android:scaleType="center"
             android:src="@mipmap/ic_launcher" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/style_fecha"
+                android:text="@string/fecha_evento"/>
+            <TextView
+                android:id="@+id/fecha2"
+                style="@style/style_fecha"
+                android:text="@string/fecha_evento"/>
+        </LinearLayout>
         <TextView
-            android:id="@+id/titulo_recycler2"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:padding="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/style_text"
-            android:text="titulo"/>
+            android:id="@+id/coemntario_e_2"
+            style="@style/style_comentario"
+            android:text="comentario"/>
+
     </LinearLayout>
 </LinearLayout>

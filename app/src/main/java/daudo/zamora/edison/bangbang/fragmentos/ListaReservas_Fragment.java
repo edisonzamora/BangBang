@@ -11,23 +11,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import daudo.zamora.edison.bangbang.Activitys.InformacionActivity;
 import daudo.zamora.edison.bangbang.R;
 import daudo.zamora.edison.bangbang.adaptadores.EventosAdaptador;
+import daudo.zamora.edison.bangbang.adaptadores.ReservasAdaptador;
 import daudo.zamora.edison.bangbang.beans.EventoBean;
+import daudo.zamora.edison.bangbang.beans.ReservaBean;
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link ListaEventos_Fragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link ListaEventos_Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class ListaEventos_Fragment extends Fragment  {
+public class ListaReservas_Fragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -36,13 +31,13 @@ public class ListaEventos_Fragment extends Fragment  {
     private String mParam1;
     private String mParam2;
     // TODO: variables  de oncreateview
-    private OnFragmentInteractionListener mListener;
+    private ListaEventos_Fragment.OnFragmentInteractionListener mListener;
     private RecyclerView recyclerView;
-    private ArrayList<EventoBean>listaeventos;
-    private EventosAdaptador eventosAdaptador;
-    private EventoBean evento;
+    private ArrayList<ReservaBean> listareservas;
+    private ReservasAdaptador reservasAdaptador;
+    private ReservaBean reservaBean;
 
-    public ListaEventos_Fragment() {
+    public ListaReservas_Fragment() {
         // Required empty public constructor
     }
 
@@ -55,8 +50,8 @@ public class ListaEventos_Fragment extends Fragment  {
      * @return A new instance of fragment ListaEventos_Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ListaEventos_Fragment newInstance(String param1, String param2) {
-        ListaEventos_Fragment fragment = new ListaEventos_Fragment();
+    public static ListaReservas_Fragment newInstance(String param1, String param2) {
+        ListaReservas_Fragment fragment = new ListaReservas_Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -76,24 +71,24 @@ public class ListaEventos_Fragment extends Fragment  {
                              Bundle savedInstanceState) {
         /**inflamos el fragmento con el layout**/
         View view=inflater.inflate(R.layout.fragment_lista_eventos_, container, false);
-        listaeventos=new ArrayList<>();
-        lista_eventos_mock(listaeventos);
+        listareservas=new ArrayList<>();
+        lista_reservas_mock(listareservas);
         recyclerView=(RecyclerView)view.findViewById(R.id.recyclerviewid);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        eventosAdaptador=new EventosAdaptador(listaeventos,2,getContext());
-        eventosAdaptador.setOnClickListener(new View.OnClickListener() {
+        reservasAdaptador=new ReservasAdaptador(listareservas,getContext());
+        reservasAdaptador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText( getContext(),"evento: "+listaeventos.get(recyclerView.getChildAdapterPosition(v)).getNombre(),Toast.LENGTH_LONG).show();
+                Toast.makeText( getContext(),"Reserva: "+listareservas.get(recyclerView.getChildAdapterPosition(v)).getNombre_evento(),Toast.LENGTH_LONG).show();
                 Intent intent=new Intent(getContext(), InformacionActivity.class);
-                 evento= listaeventos.get(recyclerView.getChildAdapterPosition(v));
-                intent.putExtra("informacion",evento);
+                reservaBean= listareservas.get(recyclerView.getChildAdapterPosition(v));
+                intent.putExtra("informacion",reservaBean);
                 startActivity(intent);
 
             }
         });
-        recyclerView.setAdapter(eventosAdaptador);
+        recyclerView.setAdapter(reservasAdaptador);
         return view;
     }
 
@@ -106,8 +101,8 @@ public class ListaEventos_Fragment extends Fragment  {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+        if (context instanceof ListaEventos_Fragment.OnFragmentInteractionListener) {
+            mListener = (ListaEventos_Fragment.OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -134,10 +129,13 @@ public class ListaEventos_Fragment extends Fragment  {
         void onFragmentInteraction(Uri uri);
     }
 
-    public static void lista_eventos_mock(List lista) {
-        lista.add(new EventoBean(1,"FIESTA1","2018-04-12","BUENA FIESTA 1","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
-        lista.add(new EventoBean(2,"FIESTA2","2018-04-12","BUENA FIETSA 2","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
-        lista.add(new EventoBean(3,"FIESTA3","2018-04-12","BUENA FIETSA 3","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
-        lista.add(new EventoBean(4,"FIESTA4","2018-04-12","BUENA FIESTA 4","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
+    public static void lista_reservas_mock(List listareservas) {
+        listareservas.add(new ReservaBean("1","1","FIESTA1", "2018-05.31","2018-04-20","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
+        listareservas.add(new ReservaBean("2","2","FIESTA2", "2018-05.31","2018-04-20","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
+        listareservas.add(new ReservaBean("3","3","FIESTA3", "2018-05.31","2018-04-20","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
+        listareservas.add(new ReservaBean("4","4","FIESTA4", "2018-05.31","2018-04-20","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
+        listareservas.add(new ReservaBean("5","1","FIESTA5", "2018-05.31","2018-04-20","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
+        listareservas.add(new ReservaBean("6","1","FIESTA6", "2018-05.31","2018-04-20","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
+
     }
 }
