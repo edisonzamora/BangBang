@@ -1,26 +1,29 @@
 package daudo.zamora.edison.bangbang.Activitys;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
+
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import daudo.zamora.edison.bangbang.Home;
 import daudo.zamora.edison.bangbang.R;
-import daudo.zamora.edison.bangbang.beans.Evento_BO;
+import daudo.zamora.edison.bangbang.beans.EventoBean;
+
 
 public class InformacionActivity extends AppCompatActivity {
+    private TextView titulo,calle,num,cp,ciudad,telefono,fijo,coment,fecha;
+   private ImageView imangeninfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_informacion);
-
         Toolbar toolbar=(Toolbar)findViewById(R.id.barra2);
         toolbar.setTitle(R.string.layout_informacion);
         toolbar.setTitleTextColor(Color.WHITE);
@@ -32,9 +35,28 @@ public class InformacionActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-            TextView textView=(TextView)findViewById(R.id.text_informacion_titulo);
         Bundle iBundle=getIntent().getExtras();
-       Evento_BO evento_bo= (Evento_BO) iBundle.getSerializable("informacion");
-       textView.setText(evento_bo.getNombre().toString());
+        EventoBean evento= (EventoBean) iBundle.getSerializable("informacion");
+        imangeninfo=(ImageView)findViewById(R.id.img_info);
+        Glide.with(getApplicationContext()).load(evento.getImagen()).into(imangeninfo);
+        fecha=(TextView)findViewById(R.id.info_feccha);
+        fecha.setText(evento.getFecha());
+        titulo=(TextView)findViewById(R.id.info_text);
+        titulo.setText(evento.getNombre());
+        calle=(TextView)findViewById(R.id.info_calle);
+        calle.setText(evento.getDireccion().getCalle());
+        num=(TextView)findViewById(R.id.info_num);
+        num.setText(evento.getDireccion().getNumero());
+        ciudad=(TextView)findViewById(R.id.info_ciu);
+        ciudad.setText(evento.getDireccion().getCiudad());
+        cp=(TextView)findViewById(R.id.info_cp);
+        cp.setText(evento.getDireccion().getCp());
+        telefono=(TextView)findViewById(R.id.info_telf);
+        telefono.setText(evento.getDireccion().getTelefono());
+        fijo=(TextView)findViewById(R.id.info_fijo);
+        fijo.setText(evento.getDireccion().getTelefono_fijo());
+        coment=(TextView)findViewById(R.id.info_comen);
+        coment.setText(evento.getComentario());
+
     }
 }

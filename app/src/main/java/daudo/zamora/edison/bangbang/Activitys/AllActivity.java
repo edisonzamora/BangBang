@@ -37,15 +37,14 @@ public class AllActivity extends AppCompatActivity implements Opciones , LoginFr
             }// cambios en el layout
         });
         fragment=new LoginFragment();
-        FragmentManager manager=getSupportFragmentManager();
-       FragmentTransaction transaction= manager.beginTransaction();
-       transaction.add(R.id.contenedor_main,fragment).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.contenedor_main,fragment).commit();
+
     }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        menu.removeItem(R.id.filtrar);
-        menu.removeItem(R.id.buscar);
+       // menu.removeItem(R.id.filtrar);
+       // menu.removeItem(R.id.buscar);
         return true;
     }
 
@@ -57,11 +56,7 @@ public class AllActivity extends AppCompatActivity implements Opciones , LoginFr
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        //noinspection SimplifiableIfStatement
         if (id == R.id.login) {
             getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_main,fragment).commit();
             toolbar.setTitle(R.string.layout_login);

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="top"
+    android:background="@color/colorNegro">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorNegro">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/efecto_itens_menu">
+        <ImageView
+            android:layout_margin="5dp"
+            android:id="@+id/imagen_r"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/ic_launcher"
+            android:scaleType="center"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView android:id="@+id/titulo_recycler"
+                style="@style/style_Titulo"/>
+            <LinearLayout
+                style="@style/style_layout_list">
+                <TextView style="@style/style_fecha"
+                    android:text="@string/fecha_evento"/>
+                <TextView style="@style/style_fecha"
+                    android:id="@+id/fecha_evento"
+                    android:text="fecha" />
+            </LinearLayout>
+            <LinearLayout style="@style/style_layout_list">
+                <TextView
+                    style="@style/style_fecha"
+                    android:text="@string/fecha_RESERVA"/>
+                <TextView style="@style/style_fecha"
+                    android:id="@+id/fecha_reserva"
+                    android:text="fecha"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
