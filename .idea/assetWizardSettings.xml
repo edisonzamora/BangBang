@@ -19,7 +19,8 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="$PROJECT_DIR$/../../../fondo3.jpg" />
+                                      <entry key="imageAsset" value="$PROJECT_DIR$/../../../llatel.png" />
+                                      <entry key="outputName" value="ic_action_tel" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -31,7 +32,7 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundLayerName" value="ic_launcher_background" />
-                                      <entry key="foregroundImage" value="$PROJECT_DIR$/../../../fondo3.jpg" />
+                                      <entry key="foregroundImage" value="$PROJECT_DIR$/../../../llatel.png" />
                                       <entry key="foregroundLayerName" value="ic_launcher_foreground" />
                                       <entry key="outputName" value="ic_launcher_fondo" />
                                     </map>
@@ -46,7 +47,7 @@
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
                                       <entry key="cropped" value="true" />
-                                      <entry key="imageAsset" value="$PROJECT_DIR$/../../../fondo3.jpg" />
+                                      <entry key="imageAsset" value="$PROJECT_DIR$/../../../llatel.png" />
                                       <entry key="outputName" value="ic_launcher_fondo1" />
                                     </map>
                                   </option>
@@ -57,7 +58,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputIconType" value="LAUNCHER_LEGACY" />
+                            <entry key="outputIconType" value="ACTIONBAR" />
                           </map>
                         </option>
                       </PersistentState>
@@ -83,7 +84,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/navigation/ic_arrow_back_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material_design_icons/notification/ic_phone_forwarded_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -93,8 +94,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_arrow_back_black_24dp" />
-                            <entry key="sourceFile" value="C:\Users\Edison Zamora" />
+                            <entry key="color" value="969696" />
+                            <entry key="outputName" value="ic_phone_forwarded_black_24dp" />
+                            <entry key="sourceFile" value="$APPLICATION_HOME_DIR$/bin/C:\Users\Edison Zamora" />
                           </map>
                         </option>
                       </PersistentState>
