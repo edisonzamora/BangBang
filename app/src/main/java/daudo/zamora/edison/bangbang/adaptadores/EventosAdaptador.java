@@ -55,16 +55,16 @@ public class EventosAdaptador extends RecyclerView.Adapter<EventosAdaptador.Even
         if (i == 1) {
 
            // eventoVistaHolderder.imageView.setImageResource(list.get(position).getImagen());
-            Glide.with(context).load(list.get(position).getImagen()).into(eventoVistaHolderder.imageView);
+            Glide.with(context).load(list.get(position).getImagen()).crossFade().centerCrop().into(eventoVistaHolderder.imageView);
             eventoVistaHolderder.textitulo.setText(list.get(position).getNombre());
             eventoVistaHolderder.fechaevento.setText(list.get(position).getFecha());
             eventoVistaHolderder.textcomentario.setText(list.get(position).getComentario());
+            eventoVistaHolderder.ciudad.setText(list.get(position).getDireccion().getCiudad());
 
         }
         if (i == 2) {
             //eventoVistaHolderder.imageView.setImageResource(list.get(position).getImagen());
-            Log.i("INFOR",list.get(position).getImagen().toString());
-            Glide.with(context).load(list.get(position).getImagen().toString()).into(eventoVistaHolderder.imageView);
+            Glide.with(context).load(list.get(position).getImagen()).crossFade().centerCrop().into(eventoVistaHolderder.imageView);
             eventoVistaHolderder.textitulo.setText(list.get(position).getNombre());
             eventoVistaHolderder.fechaevento.setText(list.get(position).getComentario());
             eventoVistaHolderder.textcomentario.setText(list.get(position).getComentario());
@@ -92,7 +92,7 @@ public class EventosAdaptador extends RecyclerView.Adapter<EventosAdaptador.Even
      **/
     public static class EventoVistaHolder extends RecyclerView.ViewHolder {
         public ImageView imageView;
-        public TextView textitulo, textcomentario ,fechaevento;
+        public TextView textitulo, textcomentario ,fechaevento ,ciudad;
 
         public EventoVistaHolder(View vista) {
             super(vista);
@@ -102,13 +102,13 @@ public class EventosAdaptador extends RecyclerView.Adapter<EventosAdaptador.Even
                 textitulo = (TextView) vista.findViewById(R.id.titulo_recycler2);
                 fechaevento  = (TextView) vista.findViewById(R.id.fecha2);
                 textcomentario =(TextView) vista.findViewById(R.id.coemntario_e_2);
+                ciudad=(TextView)vista.findViewById(R.id.ciudad);
             }
             if (EventosAdaptador.i == 2) {
                 imageView = (ImageView) vista.findViewById(R.id.imagen_e);
                 textitulo = (TextView) vista.findViewById(R.id.titulo_recycler_e);
                 fechaevento  = (TextView) vista.findViewById(R.id.fecha_evento_e);
                 textcomentario =(TextView) vista.findViewById(R.id.coemntario_e);
-
             }
         }
     }

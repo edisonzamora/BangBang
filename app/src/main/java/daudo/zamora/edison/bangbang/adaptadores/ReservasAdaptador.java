@@ -39,7 +39,7 @@ public ReservaVistaHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 @Override
 public void onBindViewHolder(ReservaVistaHolder eventoVistaHolderder, int position) {
 
-        Glide.with(context).load(list.get(position).getImagen().toString()).into(eventoVistaHolderder.imageView);
+        Glide.with(context).load(list.get(position).getImagen().toString()).crossFade().centerCrop().into(eventoVistaHolderder.imageView);
         eventoVistaHolderder.textevento.setText(list.get(position).getNombre_evento());
         eventoVistaHolderder.fechaevento.setText(list.get(position).getFechaEvento());
         eventoVistaHolderder.fecha_reserva.setText(list.get(position).getFechaReserva());
@@ -73,6 +73,7 @@ public static class ReservaVistaHolder extends RecyclerView.ViewHolder {
     public ReservaVistaHolder(View vista) {
         super(vista);
         /** creamos las referencias de las vistas que vamos a utilizar**/
+
             imageView = (ImageView) vista.findViewById(R.id.imagen_r);
             textevento = (TextView) vista.findViewById(R.id.titulo_recycler);
             fechaevento=(TextView) vista.findViewById(R.id.fecha_evento);

@@ -15,14 +15,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Sign Up"
+        android:text="@string/sep_up"
         android:layout_centerHorizontal="true"
         android:textSize="20dp"
         android:textColor="#fff"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="3dp">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
         <EditText
             style="@style/content_text"
             android:drawableLeft="@drawable/name"
@@ -30,7 +38,7 @@
         <EditText
             style="@style/content_text"
             android:drawableLeft="@drawable/name"
-            android:hint="Lastname" />
+            android:hint="@string/apellido" />
         <EditText
             style="@style/content_text"
             android:drawableLeft="@drawable/ic_perm_contact_calendar"
@@ -44,27 +52,21 @@
             android:layout_centerVertical="true"
             android:gravity="center"
             android:orientation="horizontal">
-
             <RadioButton
                 android:id="@+id/radioButton1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/RdaidoButon"
                 android:checked="true"
-                android:hint="Female"
-                android:textColor="@drawable/radio_text_selected" />
-
+                android:hint="@string/hombre" />
             <RadioButton
                 android:id="@+id/radioButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Male"
-                android:textColor="@drawable/radio_text_selected" />
+                style="@style/RdaidoButon"
+                android:hint="@string/mujer" />
         </RadioGroup>
 
         <EditText
             style="@style/content_text"
             android:drawableLeft="@drawable/ic_phone_in_talk"
-            android:hint="Telephone" />
+            android:hint="@string/telefono" />
 
         <EditText
             style="@style/content_text_email"
@@ -74,7 +76,7 @@
         <EditText
             style="@style/content_text"
             android:drawableLeft="@drawable/clave2"
-            android:hint="Password" />
+            android:hint="@string/pass" />
 
         <CheckBox
            style="@style/content_text"
@@ -83,9 +85,9 @@
         <Button
             android:id="@+id/boton_reg"
             style="@style/botones"
-            android:text="Sign Up"
-            />
-
+            android:text="@string/sep_up" />
+          </LinearLayout>
+        </ScrollView>
     </LinearLayout>
    </LinearLayout>
 </RelativeLayout>

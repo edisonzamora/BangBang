@@ -68,7 +68,7 @@ public class GridEventos_Fragment extends Fragment {
         // Inflate the layout for this fragment
         View vista=inflater.inflate(R.layout.fragment_grid_eventos_,container,false);
         recyclerView=(RecyclerView)vista.findViewById(R.id.recyclerviewid2);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),1));
         lista=new ArrayList<>();
         lista_eventos_mock(lista);
           eventosAdaptador=new EventosAdaptador(lista,1,getContext());

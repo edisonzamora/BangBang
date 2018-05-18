@@ -38,7 +38,7 @@ public class InformacionActivity extends AppCompatActivity {
         Bundle iBundle=getIntent().getExtras();
         EventoBean evento= (EventoBean) iBundle.getSerializable("informacion");
         imangeninfo=(ImageView)findViewById(R.id.img_info);
-        Glide.with(getApplicationContext()).load(evento.getImagen()).into(imangeninfo);
+        Glide.with(getApplicationContext()).load(evento.getImagen()).crossFade().centerCrop().into(imangeninfo);
         fecha=(TextView)findViewById(R.id.info_feccha);
         fecha.setText(evento.getFecha());
         titulo=(TextView)findViewById(R.id.info_text);
