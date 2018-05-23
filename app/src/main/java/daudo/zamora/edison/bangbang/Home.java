@@ -70,7 +70,6 @@ public class Home extends AppCompatActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
         menu.removeItem(R.id.registrar);
-        menu.removeItem(R.id.buscar);
         return true;
     }
     /**
@@ -88,26 +87,9 @@ public class Home extends AppCompatActivity
             Intent intent=new Intent(this, AllActivity.class);
             startActivity(intent);
             return true;
-        }else if(id == R.id.filtrar){
+        }else if(id == R.id.registrar){
             Toast.makeText(getApplicationContext(),"opcion2",Toast.LENGTH_LONG).show();
             return true;
-        }else if(id == R.id.buscar){
-           /* Fragment fragment = null;
-            if(mostrarbarrabuscar==false) {
-                Toast.makeText(getApplicationContext(), "opcion3", Toast.LENGTH_LONG).show();
-                fragment=new Buscador_Fragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_barbusqueda, fragment).commit();
-                mostrarbarrabuscar=false;
-                return true;
-            }
-           else if(mostrarbarrabuscar==true){
-                fragment=new SelectorModelos_Fragment();
-                Toast.makeText(getApplicationContext(), "opcion4", Toast.LENGTH_LONG).show();
-                getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_barbusqueda,fragment).commit();
-                mostrarbarrabuscar=true;
-                return true;
-            }*/
-
         }
         return super.onOptionsItemSelected(item);
     }

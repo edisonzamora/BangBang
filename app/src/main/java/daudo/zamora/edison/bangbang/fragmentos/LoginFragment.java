@@ -94,7 +94,7 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getContext(),"long",Toast.LENGTH_LONG).show();
-               ((AllActivity)getContext()).recogeInformacion(1);
+               ((Home)getContext()).recogeInformacion(1);
             }
         });
 
