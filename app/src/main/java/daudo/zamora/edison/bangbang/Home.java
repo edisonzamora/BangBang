@@ -1,7 +1,6 @@
 package daudo.zamora.edison.bangbang;
 
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,44 +12,37 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
-import daudo.zamora.edison.bangbang.Activitys.AllActivity;
 import daudo.zamora.edison.bangbang.fragmentos.Ajustes_Fragment;
 import daudo.zamora.edison.bangbang.fragmentos.GridEventos_Fragment;
 import daudo.zamora.edison.bangbang.fragmentos.ListaEventos_Fragment;
+import daudo.zamora.edison.bangbang.fragmentos.ListaReservas_Fragment;
 import daudo.zamora.edison.bangbang.fragmentos.LoginFragment;
 import daudo.zamora.edison.bangbang.fragmentos.Registro_Fragment;
-import daudo.zamora.edison.bangbang.fragmentos.SelectorModelos_Fragment;
 import daudo.zamora.edison.bangbang.interfases.Opciones;
 
-public class Home extends AppCompatActivity
-        implements Opciones , NavigationView.OnNavigationItemSelectedListener,ListaEventos_Fragment.OnFragmentInteractionListener,GridEventos_Fragment.OnFragmentInteractionListener{
+     public class Home extends AppCompatActivity
+        implements Opciones ,LoginFragment.OnFragmentInteractionListener,Registro_Fragment.OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener,ListaEventos_Fragment.OnFragmentInteractionListener,GridEventos_Fragment.OnFragmentInteractionListener{
+                private NavigationView navigationView;
+                private Fragment fragment;
+                private Toolbar toolbar;
+                private DrawerLayout drawer;
+                private ActionBarDrawerToggle toggle;
 
-      Fragment fragment1;
-    protected void onCreate(Bundle savedInstanceState) {
+
+        protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        /**barra de opciones **/
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("");
-        setSupportActionBar(toolbar);
-        /** drawer **/
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-        /** refereccia navegacion **/
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-        navigationView.getMenu().removeItem(R.id.cerrar_secion);
-        /** fragmento seleccion de modelo **/
-        Fragment fragment=new SelectorModelos_Fragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_barbusqueda,fragment).commit();
-        /** fragmento podor defecto **/
-        Fragment fragment1=new GridEventos_Fragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_main,fragment1).commit();
-
+                toolbar = (Toolbar) findViewById(R.id.toolbar);
+                setSupportActionBar(toolbar);
+                drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                toggle = new ActionBarDrawerToggle(
+                    this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                drawer.addDrawerListener(toggle);
+                toggle.syncState();
+                navigationView = (NavigationView) findViewById(R.id.nav_view);
+                navigationView.setNavigationItemSelectedListener(this);
+                fragment=new GridEventos_Fragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_main,fragment).commit();
     }
 
     @Override
@@ -62,63 +54,65 @@ public class Home extends AppCompatActivity
             super.onBackPressed();
         }
     }
-    /**--------------------------------------------------------------------------------------
-     ** items del toolbar
-     ** en estos metodos definims los items de la barra**/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
+<<<<<<< HEAD
         menu.removeItem(R.id.registrar);
+=======
+>>>>>>> 5189e4606102ee640df8b07437825b5763b836be
         return true;
     }
-    /**
-     * define la acciones del menu, de cada item
-     *
-     * **/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        //noinspection SimplifiableIfStatement
         if (id == R.id.login) {
-            Intent intent=new Intent(this, AllActivity.class);
-            startActivity(intent);
+            fragment=new LoginFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_main,fragment).commit();
             return true;
         }else if(id == R.id.registrar){
+<<<<<<< HEAD
             Toast.makeText(getApplicationContext(),"opcion2",Toast.LENGTH_LONG).show();
+=======
+            fragment=new Registro_Fragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_main,fragment).commit();
+>>>>>>> 5189e4606102ee640df8b07437825b5763b836be
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
-    /**--------------------------------------------------------------------------------------
-     ** acciones del navegation drawer
-     ** en estos metodos definims las acciones que realizaan los items de de la navegacion**/
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        Fragment  fragment=null;
         boolean fragment_select=false;
-        if (id == R.id.principal) {
+        if (id == R.id.principal_nav) {
             fragment=new GridEventos_Fragment();
             fragment_select=true;
-        } else if (id == R.id.lista) {
-            fragment=new ListaEventos_Fragment();
+        } else if (id == R.id.lista_nav) {
+            fragment=new ListaReservas_Fragment();
             fragment_select=true;
-        } else if (id == R.id.ajustes) {
+        } else if (id == R.id.iciar_nav) {
+            fragment=new LoginFragment();
+            fragment_select=true;
+        } else if (id == R.id.registrar_nav) {
+            fragment=new Registro_Fragment();
+            fragment_select=true;
+        }else if (id == R.id.ajustes_nav){
             fragment=new Ajustes_Fragment();
             fragment_select=true;
-        } else if (id == R.id.cerrar_secion) {
-
+        }else if(id == R.id.info_nav) {
+            fragment = new Ajustes_Fragment();
+            fragment_select = true;
+        }else if(id == R.id.cerrar_secion_nav){
+            fragment = new Ajustes_Fragment();
+            fragment_select = true;
         }
         if(fragment_select==true){
             getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_main,fragment).commit();
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -128,23 +122,21 @@ public class Home extends AppCompatActivity
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
+    protected void onDestroy() { super.onDestroy(); }
 
     @Override
     public void recogeInformacion(int num) {
         boolean fragment_select=false;
-        if (num==2) {
-            fragment1=new GridEventos_Fragment();
-            fragment_select=true;
-        }
         if (num==1) {
-            fragment1 = new ListaEventos_Fragment();
+            fragment = new Registro_Fragment();
             fragment_select = true;
         }
+        if (num==2) {
+            fragment=new GridEventos_Fragment();
+            fragment_select=true;
+        }
         if(fragment_select==true){
-            getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_main,fragment1).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_main,fragment).commit();
         }
     }
 }

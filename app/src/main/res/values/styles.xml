@@ -20,10 +20,10 @@
     <style name="style_Titulo">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textSize">30dp</item>
+        <item name="android:gravity">right</item>
+        <item name="android:textSize">40dp</item>
         <item name="android:fontFamily">cursive</item>
-        <item name="android:textColor">@color/colorBlano</item>
+        <item name="android:textColor">@color/colornegro</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:text">"tilulo"</item>
     </style>
@@ -32,7 +32,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">12dp</item>
         <item name="android:fontFamily">casual</item>
-        <item name="android:textColor">@color/colorBlano</item>
+        <item name="android:textColor">@color/colornegro</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_weight">1</item>
     </style>
@@ -41,7 +41,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">12dp</item>
         <item name="android:fontFamily">casual</item>
-        <item name="android:textColor">@color/colorBlano</item>
+        <item name="android:textColor">@color/colornegro</item>
         <item name="android:gravity">center</item>
     </style>
     <style name="style_layout_list">
@@ -71,16 +71,16 @@
     </style>
 
     <style name="CheckBoxIndigo">
-        <item name="colorAccent"> </item>
-    <item name="android:layout_width">200dp</item>
+        <item name="android:layout_width">200dp</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:textColor">@color/colorBlano</item>
         <item name="android:layout_weight">1</item>
     </style>
-    <style name="chechbox">
+    <style name="RdaidoButon">
        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@drawable/radio_text_selected</item>
     </style>
 <style name="content_text">
     <item name="android:layout_width">match_parent</item>

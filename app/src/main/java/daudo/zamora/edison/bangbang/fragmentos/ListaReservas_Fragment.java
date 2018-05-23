@@ -81,10 +81,10 @@ public class ListaReservas_Fragment extends Fragment {
             public void onClick(View v) {
 
                 Toast.makeText( getContext(),"Reserva: "+listareservas.get(recyclerView.getChildAdapterPosition(v)).getNombre_evento(),Toast.LENGTH_LONG).show();
-                Intent intent=new Intent(getContext(), InformacionActivity.class);
+                /*Intent intent=new Intent(getContext(), InformacionActivity.class);
                 reservaBean= listareservas.get(recyclerView.getChildAdapterPosition(v));
                 intent.putExtra("informacion",reservaBean);
-                startActivity(intent);
+                startActivity(intent);*/
 
             }
         });
@@ -130,12 +130,12 @@ public class ListaReservas_Fragment extends Fragment {
     }
 
     public static void lista_reservas_mock(List listareservas) {
-        listareservas.add(new ReservaBean("1","1","FIESTA1", "2018-05.31","2018-04-20","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
-        listareservas.add(new ReservaBean("2","2","FIESTA2", "2018-05.31","2018-04-20","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
-        listareservas.add(new ReservaBean("3","3","FIESTA3", "2018-05.31","2018-04-20","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
-        listareservas.add(new ReservaBean("4","4","FIESTA4", "2018-05.31","2018-04-20","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
-        listareservas.add(new ReservaBean("5","1","FIESTA5", "2018-05.31","2018-04-20","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
-        listareservas.add(new ReservaBean("6","1","FIESTA6", "2018-05.31","2018-04-20","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
+        listareservas.add(new ReservaBean("1","1","FIESTA1", "2018-05-31","2018-04-20","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
+        listareservas.add(new ReservaBean("2","2","FIESTA2", "2018-05-31","2018-04-20","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
+        listareservas.add(new ReservaBean("3","3","FIESTA3", "2018-05-31","2018-04-20","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
+        listareservas.add(new ReservaBean("4","4","FIESTA4", "2018-05-31","2018-04-20","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
+        listareservas.add(new ReservaBean("5","1","FIESTA5", "2018-05-31","2018-04-20","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
+        listareservas.add(new ReservaBean("6","1","FIESTA6", "2018-05-31","2018-04-20","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
 
     }
 }

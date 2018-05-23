@@ -84,7 +84,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material_design_icons/notification/ic_phone_forwarded_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/hardware/ic_phone_iphone_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -94,9 +94,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="969696" />
-                            <entry key="outputName" value="ic_phone_forwarded_black_24dp" />
-                            <entry key="sourceFile" value="$APPLICATION_HOME_DIR$/bin/C:\Users\Edison Zamora" />
+                            <entry key="outputName" value="ic_phone_iphone_black_24dp" />
+                            <entry key="sourceFile" value="C:\Program Files\Android\Android Studio\bin\C:\Users\Edison Zamora" />
                           </map>
                         </option>
                       </PersistentState>

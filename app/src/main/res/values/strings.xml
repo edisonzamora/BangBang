@@ -3,8 +3,6 @@
     <string name="app_name">BangBang</string>
     <string name="layout_login">Iniciar Sesión</string>
     <string name="layout_informacion">Infornacion</string>
-
-    <!-- TODO: menu drawer -->
     <string name="Principal">HOME</string>
     <string name="lista">TIKETS</string>
     <string name="promociones">Promociones</string>
@@ -14,9 +12,6 @@
     <string name="inciar">INICIAR</string>
     <string name="registrar_">REGISTRAR</string>
     <string name="informacion">INFORMACION</string>
-
-
-    <!-- TODO: textos toolbar -->
     <string name="login">login</string>
     <string name="Filtrar">Filtrar</string>
     <string name="Buscar">Buscar</string>
@@ -24,25 +19,24 @@
     <string name="nombre">Nombre</string>
     <string name="recordar_usuario">Recordar usuario</string>
     <string name="registrate">Registrar</string>
-
-
-    <!-- TODO: botones -->
     <string name="btn_aceptar">Aceptar</string>
     <string name="btn_camcelar">Cancelar</string>
     <string name="btn_lista">Lista</string>
     <string name="btn_grid">Cartelera</string>
-    <string name="fecha_evento">FECHA DEL EVENTO:</string>
-    <string name="fecha_RESERVA">FECHA DE LA RESERVA:</string>
-
+    <string name="fecha_evento">Fecha de Evento:</string>
+    <string name="fecha_RESERVA">Fecha de Reserva:</string>
+    <string name="sep_up">SEP UP</string>
+    <string name="apellido">Apellido</string>
+    <string name="telefono">Telefono</string>
+    <string name="hombre">Hombre</string>
+    <string name="mujer">Mujer</string>
     <string name="usuario">Usuario</string>
     <string name="email">Email</string>
     <string name="pass">Contraseña</string>
     <string name="recordar">Recordar</string>
     <string name="login_1">Login</string>
+    <string name="reservar">Reservar</string>
     <string name="registrar_1">Registrar</string>
-
-
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
