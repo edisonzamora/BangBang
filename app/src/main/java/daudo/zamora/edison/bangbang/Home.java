@@ -12,6 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
 import daudo.zamora.edison.bangbang.fragmentos.Ajustes_Fragment;
 import daudo.zamora.edison.bangbang.fragmentos.GridEventos_Fragment;
 import daudo.zamora.edison.bangbang.fragmentos.ListaEventos_Fragment;
@@ -57,10 +59,9 @@ import daudo.zamora.edison.bangbang.interfases.Opciones;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.home, menu);
-<<<<<<< HEAD
+
         menu.removeItem(R.id.registrar);
-=======
->>>>>>> 5189e4606102ee640df8b07437825b5763b836be
+
         return true;
     }
     @Override
@@ -71,12 +72,12 @@ import daudo.zamora.edison.bangbang.interfases.Opciones;
             getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_main,fragment).commit();
             return true;
         }else if(id == R.id.registrar){
-<<<<<<< HEAD
-            Toast.makeText(getApplicationContext(),"opcion2",Toast.LENGTH_LONG).show();
-=======
+
+            Toast.makeText(getApplicationContext(),"opcion2", Toast.LENGTH_LONG).show();
+
             fragment=new Registro_Fragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_main,fragment).commit();
->>>>>>> 5189e4606102ee640df8b07437825b5763b836be
+
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -123,7 +124,7 @@ import daudo.zamora.edison.bangbang.interfases.Opciones;
 
     @Override
     protected void onDestroy() { super.onDestroy(); }
-
+//cambio2
     @Override
     public void recogeInformacion(int num) {
         boolean fragment_select=false;
