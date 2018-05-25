@@ -17,5 +17,5 @@ public class Ajustes_Fragment extends Fragment {
         View view=inflater.inflate(R.layout.fragment_ajustes,container,false);
         TextView textView=(TextView)view.findViewById(R.id.text_confi);
         return view ;
-    }
+    }//holla
 }
