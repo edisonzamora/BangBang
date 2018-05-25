@@ -115,12 +115,12 @@ public class Registro_Fragment extends Fragment {
                     Log.i("INFORMACION", "PASS:" + editText_pass.getText().toString());
                     Log.i("INFORMACION", "ACAPTA LOS TERMINSO:" + terminos);
                     if(validaDatos(usuario)){
-                        Toast.makeText(getContext(), "Verifique que los campos requerios no esten vacios  ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Verifique que los campos requeridos no estén vacíos", Toast.LENGTH_SHORT).show();
                     }else {
                         if(Integer.parseInt(usuario.getFechanaciemoto())>=17 & Integer.parseInt(usuario.getFechanaciemoto())<= 150 ){
                             callApi();
                         }else {
-                            Toast.makeText(getContext(), "No Tine La Edad Apropida", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "No tiene edad apropiada", Toast.LENGTH_SHORT).show();
 
                         }
                     }

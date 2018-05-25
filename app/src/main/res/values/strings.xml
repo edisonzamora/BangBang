@@ -2,15 +2,15 @@
     <!-- TODO:titulos layouts -->
     <string name="app_name">BangBang</string>
     <string name="layout_login">Iniciar Sesión</string>
-    <string name="layout_informacion">Infornacion</string>
-    <string name="principal">HOME</string>
-    <string name="lista">TIKETS</string>
-    <string name="reservas">RESERVAS</string>
-    <string name="ajustes">AJUSTES</string>
-    <string name="cerrar">CERRAR SESION</string>
-    <string name="inciar">INICIAR</string>
-    <string name="registrar_">REGISTRAR</string>
-    <string name="informacion">INFORMACION</string>
+    <string name="layout_informacion">Información</string>
+    <string name="principal">Home</string>
+    <string name="lista">Tickets</string>
+    <string name="reservas">Reservas</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="cerrar">Cerrar Sesión</string>
+    <string name="inciar">Iniciar</string>
+    <string name="registrar_">Registrar</string>
+    <string name="informacion">Información</string>
     <string name="login">login</string>
     <string name="contraseña">Contraseña</string>
     <string name="nombre">Nombre</string>
@@ -20,7 +20,7 @@
     <string name="btn_camcelar">Cancelar</string>
     <string name="fecha_evento">Fecha de Evento:</string>
     <string name="fecha_RESERVA">Fecha de Reserva:</string>
-    <string name="sep_up">SEP UP</string>
+    <string name="sep_up">Registrar</string>
     <string name="apellido">Apellido</string>
     <string name="telefono">Telefono</string>
     <string name="hombre">Hombre</string>
@@ -40,4 +40,9 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="urlhost">"http://bangbanghome.000webhostapp.com/api/v1/"</string>
+    <string name="banbang_default">BANGBANG</string>
+    <string name="bangbang_email">contacto@bangbang.com</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

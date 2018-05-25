@@ -83,7 +83,7 @@ public class ListaReservas_Fragment extends Fragment implements Response.Listene
         dialpross = new ProgressDialog(getContext());
         dialpross.setMessage("cargando..");
         dialpross.show();
-        String url=getString(R.string.urlhost)+"select/reservas.php?bang=reservas&id=1";
+        String url=getString(R.string.urlhost)+"select/reservas.php?bang=reservas&id=2";
         request=new JsonObjectRequest(Request.Method.GET,url, (String) null,this,this);
         VolleyInstance.getvolleyInstance(getContext()).agregarAlRequestqueue(request);
 
@@ -124,7 +124,7 @@ public class ListaReservas_Fragment extends Fragment implements Response.Listene
                 reservaBean.setFechaReserva(object.getString("date_reservation").toString());
                 Log.i("BangBangInfo",object.optString("date_reservation").toString());
 
-                reservaBean.setImagen("http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6");
+                reservaBean.setImagen(object.getString("image_event").toString());
                 listareservas.add(reservaBean);
             }
             dialpross.hide();

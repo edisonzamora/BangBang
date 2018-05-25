@@ -147,7 +147,7 @@ public class GridEventos_Fragment extends Fragment implements Response.Listener<
                 eventosBean.setFecha(object.getString("date_event").toString());
                 Log.i("BangBangInfo",object.optString("date_event").toString());
 
-                eventosBean.setImagen("http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6");
+                eventosBean.setImagen(object.getString("image_event").toString());
                 if(object.getString("coment_event")==null || object.getString("coment_event").toString().equalsIgnoreCase("null")){
                     eventosBean.setComentario("");
                 }else{

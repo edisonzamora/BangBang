@@ -11,8 +11,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.bumptech.glide.Glide;
+
+import org.json.JSONObject;
 
 import daudo.zamora.edison.bangbang.Home;
 import daudo.zamora.edison.bangbang.R;
@@ -20,12 +27,16 @@ import daudo.zamora.edison.bangbang.beans.EventoBean;
 import daudo.zamora.edison.bangbang.beans.ReservaBean;
 import daudo.zamora.edison.bangbang.fragmentos.LoginFragment;
 import daudo.zamora.edison.bangbang.fragmentos.Registro_Fragment;
+import daudo.zamora.edison.bangbang.reques.VolleyInstance;
 
 public class AllActivity extends AppCompatActivity{
     private TextView nombre, fecha, calle,numero_callle,cp,ciudad;
     private Button eliminar ,confirmar;
     private ImageView imageView;
     private Toolbar toolbar;
+
+    private String id_reserva;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,13 +47,12 @@ public class AllActivity extends AppCompatActivity{
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(), Home.class);
-                startActivity(intent);
                 finish();
             }// cambios en el layout
         });
         Bundle bundle=getIntent().getExtras();
         ReservaBean reservaBean = (ReservaBean) bundle.getSerializable("infoReserva");
+        id_reserva=reservaBean.getId_reserva();
 
         imageView=(ImageView)findViewById(R.id.image_reser_car);
         Glide.with(getApplicationContext()).load(reservaBean.getImagen()).crossFade().centerCrop().into(imageView);
@@ -59,6 +69,35 @@ public class AllActivity extends AppCompatActivity{
         cp.setText(eventoBean.getDireccion().getCp());
         ciudad=(TextView)findViewById(R.id.reser_ciudad_card);
         ciudad.setText(eventoBean.getDireccion().getCiudad());
+        eliminar = (Button) findViewById(R.id.boton_eliminar);
+        confirmar = (Button) findViewById(R.id.boton_confirmar);
+confirmar.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        Toast.makeText(getApplicationContext(),"Reserva confirmada",Toast.LENGTH_SHORT).show();
+    }
+});
+
+        eliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              String url =getString(R.string.urlhost)+"delet_input/delete.php?reserva="+id_reserva;
+                JsonObjectRequest json=new JsonObjectRequest(Request.Method.GET, url, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Toast.makeText(getApplicationContext(),"borrado",Toast.LENGTH_LONG).show();
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(),error.getMessage().toString(),Toast.LENGTH_LONG).show();
+                    }
+                });
+                VolleyInstance.getvolleyInstance(getApplicationContext()).getRetornaRequestQueue().add(json);
+            }
+
+
+        });
 
 
     }

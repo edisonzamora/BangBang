@@ -15,7 +15,7 @@ public class Ajustes_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater,  ViewGroup container, Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_ajustes,container,false);
-        TextView textView=(TextView)view.findViewById(R.id.text_confi);
+        //TextView textView=(TextView)view.findViewById(R.id.text_confi);
         return view ;
     }//holla
 }

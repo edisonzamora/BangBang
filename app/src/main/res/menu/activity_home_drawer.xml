@@ -29,9 +29,6 @@
             android:id="@+id/info_nav"
             android:icon="@drawable/ic_info_black_24dp"
             android:title="@string/informacion" />
-        <item
-            android:id="@+id/cerrar_secion_nav"
-            android:icon="@drawable/ic_sentiment_dissatisfied_black_24dp"
-            android:title="@string/cerrar" />
+
     </group>
 </menu>
