@@ -73,7 +73,7 @@
     <style name="CheckBoxIndigo">
         <item name="android:layout_width">200dp</item>
         <item name="android:layout_height">50dp</item>
-        <item name="android:background">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/colorBlano</item>
         <item name="android:layout_weight">1</item>
     </style>
@@ -88,5 +88,5 @@
     <item name="android:background">@drawable/signup</item>
 
 </style>
-
+//cambio 1
 </resources>
