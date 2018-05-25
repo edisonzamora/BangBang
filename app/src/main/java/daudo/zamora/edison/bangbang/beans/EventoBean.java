@@ -3,11 +3,11 @@ package daudo.zamora.edison.bangbang.beans;
 import java.io.Serializable;
 
 public class EventoBean implements Serializable {
-    public int getId_evento() {
+    public String getId_evento() {
         return id_evento;
     }
 
-    public void setId_evento(int id_evento) {
+    public void setId_evento(String id_evento) {
         this.id_evento = id_evento;
     }
 
@@ -35,7 +35,7 @@ public class EventoBean implements Serializable {
         this.comentario = comentario;
     }
 
-    private int id_evento;
+    private String id_evento;
     private String nombre;
     private String fecha;
     private DireccionBean direccion;
@@ -58,7 +58,7 @@ public class EventoBean implements Serializable {
         this.direccion = direccion;
     }
 
-    public EventoBean(int id_evento, String nombre, String fecha, String comentario,String imagen) {
+    public EventoBean(String id_evento, String nombre, String fecha, String comentario,String imagen) {
         this.id_evento = id_evento;
         this.nombre = nombre;
         this.comentario = comentario;

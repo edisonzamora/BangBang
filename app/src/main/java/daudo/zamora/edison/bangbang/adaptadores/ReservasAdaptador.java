@@ -19,9 +19,6 @@ private ReservaVistaHolder reservaVistaHolder;
 private View.OnClickListener listener;
 private Context context;
 
-/**
- * constructor  del adaptador que recibe una lista de objetos Evento_BO
- **/
 public ReservasAdaptador(List<ReservaBean> list, Context context) {
         this.list = list;
         this.context=context;
@@ -37,13 +34,10 @@ public ReservaVistaHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         }
 
 @Override
-public void onBindViewHolder(ReservaVistaHolder eventoVistaHolderder, int position) {
-
-        Glide.with(context).load(list.get(position).getImagen().toString()).crossFade().centerCrop().into(eventoVistaHolderder.imageView);
-        eventoVistaHolderder.textevento.setText(list.get(position).getNombre_evento());
-        eventoVistaHolderder.fechaevento.setText(list.get(position).getFechaEvento());
-        eventoVistaHolderder.fecha_reserva.setText(list.get(position).getFechaReserva());
-
+public void onBindViewHolder(ReservaVistaHolder reservaVistaHolder, int position) {
+        Glide.with(context).load(list.get(position).getImagen().toString()).crossFade().centerCrop().into(reservaVistaHolder.imageView);
+        reservaVistaHolder.textevento.setText(list.get(position).getNombre_evento());
+        reservaVistaHolder.fechaevento.setText(list.get(position).getFechaEvento());
         }
 
 @Override
@@ -60,24 +54,18 @@ public void onClick(View v) {
         if (listener != null) {
         listener.onClick(v);
         }
-        }
-
-/**
- * clase interna que ayuda a referencias al que le pasaremos la vista
- **/
+    }
 public static class ReservaVistaHolder extends RecyclerView.ViewHolder {
     public ImageView imageView;
-    public TextView textevento,fechaevento,fecha_reserva;
+    public TextView textevento,fechaevento,fechareserva;
 
 
     public ReservaVistaHolder(View vista) {
         super(vista);
-        /** creamos las referencias de las vistas que vamos a utilizar**/
-
             imageView = (ImageView) vista.findViewById(R.id.imagen_r);
             textevento = (TextView) vista.findViewById(R.id.titulo_recycler);
             fechaevento=(TextView) vista.findViewById(R.id.fecha_evento);
-            fecha_reserva=(TextView) vista.findViewById(R.id.fecha_reserva);
+
 
     }
 }

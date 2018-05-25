@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:id="@+id/items_barra">
     <item
         android:id="@+id/login"
         android:icon="@drawable/ic_person_black_24dp"
@@ -14,4 +15,6 @@
         android:orderInCategory="100"
         android:title="@string/registrar_"
         app:showAsAction="always" />
+
+    </group>
 </menu>

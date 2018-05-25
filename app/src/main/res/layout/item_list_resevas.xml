@@ -4,17 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:gravity="top">
+    android:gravity="center">
     <LinearLayout
-        android:orientation="vertical"
+        android:padding="1dp"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:padding="1dp">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center"
+        android:gravity="top"
         android:background="@drawable/efecto_itens_menu">
         <ImageView
             android:layout_margin="5dp"
@@ -24,16 +20,14 @@
             android:src="@mipmap/ic_launcher"
             android:scaleType="center"
             android:clickable="true"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        <LinearLayout  style="@style/style_layout_list_reservas"
             android:padding="1dp"
             android:orientation="vertical">
-            <TextView android:id="@+id/titulo_recycler"
-                style="@style/style_Titulo"
-                android:gravity=""
-                android:textColor="@color/colornegro"/>
-            <LinearLayout style="@style/style_layout_list">
+            <TextView
+                android:id="@+id/titulo_recycler"
+                style="@style/style_Titulo_reservas"
+                android:textColor="@color/colornegro" />
+            <LinearLayout style="@style/style_layout_list_reservas">
                 <TextView style="@style/style_fecha"
                     android:text="@string/fecha_evento"
                     android:textColor="@color/colornegro"/>
@@ -46,20 +40,6 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_date_range_black_24dp"/>
             </LinearLayout>
-            <LinearLayout style="@style/style_layout_list">
-                <TextView style="@style/style_fecha"
-                    android:text="@string/fecha_RESERVA"/>
-                <TextView style="@style/style_fecha"
-                    android:id="@+id/fecha_reserva"
-                    android:text="@string/fecha_RESERVA"/>
-                <ImageView
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_date_range_black_24dp"/>
-
-            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
     </LinearLayout>
 </LinearLayout>

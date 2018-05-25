@@ -26,20 +26,8 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
                 <TextView android:id="@+id/titulo_recycler_e"
-                style="@style/style_Titulo"/>
-                <LinearLayout
-                    style="@style/style_layout_list">
-                        <TextView style="@style/style_fecha"
-                            android:text="@string/fecha_evento"/>
-                        <TextView style="@style/style_fecha"
-                            android:id="@+id/fecha_evento_e"
-                            android:text="fecha" />
-                </LinearLayout>
-                <LinearLayout style="@style/style_layout_list">
-                        <TextView style="@style/style_comentario"
-                            android:id="@+id/coemntario_e"
-                            android:text="comentario sobre evento"/>
-                </LinearLayout>
+                style="@style/style_Titulo_eventos"/>
+
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

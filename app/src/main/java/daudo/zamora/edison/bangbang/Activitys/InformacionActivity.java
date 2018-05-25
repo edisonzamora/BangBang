@@ -9,9 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
-
 import daudo.zamora.edison.bangbang.Home;
 import daudo.zamora.edison.bangbang.R;
 import daudo.zamora.edison.bangbang.beans.EventoBean;
@@ -33,6 +31,7 @@ public class InformacionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(getApplicationContext(), Home.class);
                 startActivity(intent);
+                finish();
             }
         });
         Bundle iBundle=getIntent().getExtras();

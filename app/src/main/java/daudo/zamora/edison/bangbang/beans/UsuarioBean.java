@@ -6,13 +6,43 @@ public class UsuarioBean implements Serializable {
     private int id;
     private String nombre;
     private String apellido;
+    private String fechanaciemoto;
+    private String sexo;
+    private String telefono;
     private String pass;
+    private String correo;
 
-    public UsuarioBean(int id, String nombre, String apellido, String pass) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.pass = pass;
+
+    public String getFechanaciemoto() {
+        return fechanaciemoto;
+    }
+
+    public void setFechanaciemoto(String fechanaciemoto) {
+        this.fechanaciemoto = fechanaciemoto;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public UsuarioBean(){}
+    public String getCorreo() {
+        return correo;
+    }
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public int getId() {
