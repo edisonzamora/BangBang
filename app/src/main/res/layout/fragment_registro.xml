@@ -5,7 +5,7 @@
     android:background="@drawable/disco2"
     android:gravity="center"
     tools:context="daudo.zamora.edison.bangbang.fragmentos.Registro_Fragment">
-
+//combio3
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent"
@@ -34,7 +34,8 @@
         <EditText
             style="@style/content_text"
             android:drawableLeft="@drawable/name"
-            android:hint="@string/usuario" />
+            android:hint="@string/usuario"
+           />
         <EditText
             style="@style/content_text"
             android:drawableLeft="@drawable/name"
@@ -74,7 +75,7 @@
             android:drawableLeft="@drawable/email" />
 
         <EditText
-            style="@style/content_text"
+            style="@style/content_text_pass"
             android:drawableLeft="@drawable/clave2"
             android:hint="@string/pass" />
 
