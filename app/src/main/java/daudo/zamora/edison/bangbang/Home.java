@@ -182,14 +182,14 @@ import daudo.zamora.edison.bangbang.interfases.Opciones;
              editorprefs.putString(getString(R.string.passUsuario),usuario.getPass().toString());
              editorprefs.putString(getString(R.string.idusuario),Integer.toString(usuario.getId()).toString());
              editorprefs.commit();
-             comfiguracion(preferences.getBoolean("registrado",false));
+             comfiguracion(preferences.getBoolean("Registrado",false));
          }
          protected void  comfiguracion(boolean valor){
                  if (valor==true) {
                      onCreateOptionsMenu(toolbar.getMenu());
                      View view = navigationView.getHeaderView(0);
                      ImageView imagenuser = (ImageView) view.findViewById(R.id.image_usuario);
-                     imagenuser.setImageResource(R.drawable.clave2);
+                     imagenuser.setImageResource(R.mipmap.bang);
                      TextView nombre = (TextView) view.findViewById(R.id.texto_usuario);
                      nombre.setText(preferences.getString(getString(R.string.nombreUsuario), ""));
                      TextView correo = (TextView) view.findViewById(R.id.correo_usuario);

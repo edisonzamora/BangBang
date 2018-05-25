@@ -22,6 +22,7 @@
               android:layout_height="wrap_content"
               android:text="Notificaciones" />
           <Switch
+              android:id="@+id/notificacion"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:buttonTint="@color/colorAccent"
@@ -38,6 +39,7 @@
               android:layout_height="wrap_content"
               android:text="Permisos de ajustes" />
           <Switch
+              android:id="@+id/permiso"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:buttonTint="@color/colorAccent"

@@ -1,6 +1,8 @@
 package daudo.zamora.edison.bangbang.Activitys;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -41,6 +43,7 @@ public class AllActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all);
+         //SharedPreferences preferences= getApplicationContext().getSharedPreferences(getString(R.string.datosusuario, Context.MODE_PRIVATE));
         toolbar=(Toolbar)findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         setSupportActionBar(toolbar);

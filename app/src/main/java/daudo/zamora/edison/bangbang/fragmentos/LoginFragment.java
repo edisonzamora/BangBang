@@ -138,7 +138,7 @@ private StringRequest login;
 
                     }else{
 
-                        Toast.makeText(getContext(),"noregistrado",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),"No Registrado",Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -150,7 +150,7 @@ private StringRequest login;
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getContext(),"error"+error.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"Error de conexion"+error.toString(),Toast.LENGTH_SHORT).show();
 
             }
         });

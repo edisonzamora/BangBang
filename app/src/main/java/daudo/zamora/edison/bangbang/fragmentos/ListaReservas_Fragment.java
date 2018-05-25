@@ -90,7 +90,7 @@ public class ListaReservas_Fragment extends Fragment implements Response.Listene
     }
     @Override
     public void onErrorResponse(VolleyError error) {
-        Toast.makeText(getContext(),"error sin respuesta" + error.getMessage().toString(),Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(),"Verificar conexion",Toast.LENGTH_SHORT).show();
         Log.e("error",error.getMessage().toString());
     }
 
