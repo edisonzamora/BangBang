@@ -32,19 +32,28 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
         <EditText
+            android:id="@+id/nombre_uruario"
             style="@style/content_text"
             android:drawableLeft="@drawable/name"
+<<<<<<< HEAD
             android:hint="@string/usuario"
            />
+=======
+            android:hint="@string/usuario" />
+
+              <EditText
+                  android:id="@+id/apellido_usuario"
+                  style="@style/content_text"
+                  android:layout_height="wrap_content"
+                  android:drawableLeft="@drawable/name"
+                  android:hint="@string/apellido" />
+>>>>>>> 716cc349b1bc8fb808ad702c3aa1bb6b766b5643
         <EditText
-            style="@style/content_text"
-            android:drawableLeft="@drawable/name"
-            android:hint="@string/apellido" />
-        <EditText
+            android:id="@+id/edad"
             style="@style/content_text"
             android:drawableLeft="@drawable/ic_perm_contact_calendar"
-            android:hint="Birthday"
-            android:inputType="date" />
+            android:hint="Edad"
+            android:inputType="number" />
 
         <RadioGroup
             android:id="@+id/radiogroup"
@@ -53,9 +62,11 @@
             android:layout_centerVertical="true"
             android:gravity="center"
             android:orientation="horizontal">
+
             <RadioButton
                 android:id="@+id/radioButton1"
                 style="@style/RdaidoButon"
+                android:layout_width="wrap_content"
                 android:checked="true"
                 android:hint="@string/hombre" />
             <RadioButton
@@ -65,21 +76,32 @@
         </RadioGroup>
 
         <EditText
+            android:id="@+id/telefono"
             style="@style/content_text"
             android:drawableLeft="@drawable/ic_phone_in_talk"
-            android:hint="@string/telefono" />
+            android:hint="@string/telefono"
+            android:inputType="phone"/>
 
         <EditText
+            android:id="@+id/email_usuario"
             style="@style/content_text_email"
             android:background="@drawable/signup"
-            android:drawableLeft="@drawable/email" />
+            android:drawableLeft="@drawable/email"
+            android:inputType="textEmailAddress"/>
 
         <EditText
+<<<<<<< HEAD
             style="@style/content_text_pass"
+=======
+            android:id="@+id/password_usuario"
+            style="@style/content_text"
+>>>>>>> 716cc349b1bc8fb808ad702c3aa1bb6b766b5643
             android:drawableLeft="@drawable/clave2"
-            android:hint="@string/pass" />
+            android:hint="@string/pass"
+            android:inputType="textPassword"/>
 
         <CheckBox
+            android:id="@+id/chech_config"
            style="@style/content_text"
             android:hint="By continuing, I accept Terms and Conditions and the Privacy Policy"
             android:textSize="10dp" />

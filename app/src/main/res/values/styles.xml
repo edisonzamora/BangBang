@@ -17,46 +17,54 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
     <!-- estilo de los textos  de la aplicacion -->
-    <style name="style_Titulo">
+    <style name="style_Titulo_reservas">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:text">"tilulo"</item>
+    </style>
+    <style name="style_Titulo_eventos">
+        <item name="android:textColor">@color/colorBlano</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">right</item>
-        <item name="android:textSize">40dp</item>
-        <item name="android:fontFamily">cursive</item>
-        <item name="android:textColor">@color/colornegro</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:text">"tilulo"</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:text">texto</item>
     </style>
     <style name="style_fecha">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">12dp</item>
+        <item name="android:textSize">17dp</item>
         <item name="android:fontFamily">casual</item>
-        <item name="android:textColor">@color/colornegro</item>
-        <item name="android:gravity">center</item>
-        <item name="android:layout_weight">1</item>
     </style>
-    <style name="style_comentario">
+    <style name="style_comentario_evento">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">12dp</item>
+        <item name="android:textSize">17dp</item>
         <item name="android:fontFamily">casual</item>
-        <item name="android:textColor">@color/colornegro</item>
+        <item name="android:textColor">@color/colorBlano</item>
         <item name="android:gravity">center</item>
     </style>
-    <style name="style_layout_list">
+    <style name="style_layout_list_reservas" parent="style_layout">
+    </style>
+    <style name="style_layout">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:orientation">horizontal</item>
-        <item name="android:gravity">center</item>
+    </style>
+    <style name="style_layout_2">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
     </style>
 
     <style name="botones">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:background">@drawable/efecto_botones</item>
-        <item name="android:textColor">#fff</item>
+        <item name="android:textColor">@color/colorBlano</item>
+
+    </style>
+    <style name="style_icon">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
 
     </style>
     <style name="content_text_email" parent="content_text">

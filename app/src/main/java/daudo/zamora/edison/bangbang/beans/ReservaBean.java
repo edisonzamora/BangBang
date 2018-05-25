@@ -10,6 +10,10 @@ public class ReservaBean implements Serializable{
     private String fechaEvento;
     private String imagen;
 
+    public ReservaBean() {
+
+    }
+
     public ReservaBean(String id_reserva, String id_usuario, String nombre_evento, String fechaEvento, String fechaReserva, String imagen) {
         this.id_reserva = id_reserva;
         this.id_usuario = id_usuario;

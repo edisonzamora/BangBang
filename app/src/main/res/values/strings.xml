@@ -3,9 +3,8 @@
     <string name="app_name">BangBang</string>
     <string name="layout_login">Iniciar Sesión</string>
     <string name="layout_informacion">Infornacion</string>
-    <string name="Principal">HOME</string>
+    <string name="principal">HOME</string>
     <string name="lista">TIKETS</string>
-    <string name="promociones">Promociones</string>
     <string name="reservas">RESERVAS</string>
     <string name="ajustes">AJUSTES</string>
     <string name="cerrar">CERRAR SESION</string>
@@ -13,16 +12,12 @@
     <string name="registrar_">REGISTRAR</string>
     <string name="informacion">INFORMACION</string>
     <string name="login">login</string>
-    <string name="Filtrar">Filtrar</string>
-    <string name="Buscar">Buscar</string>
     <string name="contraseña">Contraseña</string>
     <string name="nombre">Nombre</string>
     <string name="recordar_usuario">Recordar usuario</string>
     <string name="registrate">Registrar</string>
     <string name="btn_aceptar">Aceptar</string>
     <string name="btn_camcelar">Cancelar</string>
-    <string name="btn_lista">Lista</string>
-    <string name="btn_grid">Cartelera</string>
     <string name="fecha_evento">Fecha de Evento:</string>
     <string name="fecha_RESERVA">Fecha de Reserva:</string>
     <string name="sep_up">SEP UP</string>
@@ -33,21 +28,16 @@
     <string name="usuario">Usuario</string>
     <string name="email">Email</string>
     <string name="pass">Contraseña</string>
+    <string name="datosusuario">datosUsuario</string>
+    <string name="nombreUsuario">nombre</string>
+    <string name="correoUsuario">correo</string>
+    <string name="passUsuario">password</string>
+    <string name="idusuario">idusuario</string>
     <string name="recordar">Recordar</string>
     <string name="login_1">Login</string>
     <string name="reservar">Reservar</string>
     <string name="registrar_1">Registrar</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <!-- TODO: arrays uso -->
-    <string-array name="ciudades">
-        <item>Barcelona</item>
-        <item>Madrid</item>
-        <item>Bilbao</item>
-        <item>Malloreca</item>
-        <item>canarias</item>
-    </string-array>
-
-
+    <string name="urlhost">"http://bangbanghome.000webhostapp.com/api/v1/"</string>
 </resources>

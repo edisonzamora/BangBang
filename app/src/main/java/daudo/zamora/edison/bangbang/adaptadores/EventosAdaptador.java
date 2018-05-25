@@ -107,8 +107,6 @@ public class EventosAdaptador extends RecyclerView.Adapter<EventosAdaptador.Even
             if (EventosAdaptador.i == 2) {
                 imageView = (ImageView) vista.findViewById(R.id.imagen_e);
                 textitulo = (TextView) vista.findViewById(R.id.titulo_recycler_e);
-                fechaevento  = (TextView) vista.findViewById(R.id.fecha_evento_e);
-                textcomentario =(TextView) vista.findViewById(R.id.coemntario_e);
             }
         }
     }
