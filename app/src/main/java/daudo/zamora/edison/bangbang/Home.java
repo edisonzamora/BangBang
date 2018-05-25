@@ -180,7 +180,7 @@ import daudo.zamora.edison.bangbang.interfases.Opciones;
                      correo.setText(preferences.getString(getString(R.string.correoUsuario), ""));
                      navigationView.getMenu().removeItem(R.id.iciar_nav);
                      navigationView.getMenu().removeItem(R.id.registrar_nav);
-                     navigationView.getMenu().add(R.id.itemss,R.id.cerrar_secion_nav,5,getString(R.string.cerrar));
+                     navigationView.getMenu().add(R.id.itemss,R.id.cerrar_secion_nav,5,getString(R.string.cerrar) );
 
 
                  }
