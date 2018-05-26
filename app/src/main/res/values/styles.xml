@@ -94,6 +94,30 @@
     <item name="android:layout_height">50dp</item>
     <item name="android:background">@drawable/signup</item>
 
+
 </style>
+    <style name="context_titulo">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:text">¿Qué es BANGBANG?</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#B93FB7</item>
+        <item name="android:textSize">25dp</item>
+    </style>
+
+    <style name="context_contacto">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:text">Contacto</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#B93FB7</item>
+        <item name="android:textSize">25dp</item>
+    </style>
+
+
+
+
 //cambio 1
 </resources>
