@@ -14,16 +14,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import android.widget.Toast;
-
-
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.ArrayList;
 import daudo.zamora.edison.bangbang.beans.UsuarioBean;
-
 import daudo.zamora.edison.bangbang.fragmentos.Ajustes_Fragment;
 import daudo.zamora.edison.bangbang.fragmentos.GridEventos_Fragment;
 import daudo.zamora.edison.bangbang.fragmentos.ListaEventos_Fragment;
@@ -42,7 +38,7 @@ import daudo.zamora.edison.bangbang.interfases.Opciones;
         private ActionBarDrawerToggle toggle;
         private ArrayList<Fragment>listafragmentod;
         private SharedPreferences preferences;
-         private SharedPreferences.Editor editorprefs;
+        private SharedPreferences.Editor editorprefs;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +49,7 @@ import daudo.zamora.edison.bangbang.interfases.Opciones;
         toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -63,8 +60,10 @@ import daudo.zamora.edison.bangbang.interfases.Opciones;
         listafragmentod.add(new info_Fragment());
 
         getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_main,new GridEventos_Fragment()).commit();
+
         preferences=getSharedPreferences(getString(R.string.datosusuario), Context.MODE_PRIVATE);
-        comfiguracion(preferences.getBoolean("registrado",false));
+
+        comfiguracion(preferences.getBoolean(getString(R.string.usuregistrado),false));
     }
 
     @Override
@@ -161,11 +160,16 @@ import daudo.zamora.edison.bangbang.interfases.Opciones;
     public void  selectFragmrnt(int num) {
         boolean fragment_select=false;
         if (num==1) {
-            fragment = listafragmentod.get(1);
+            fragment = new GridEventos_Fragment();
             fragment_select = true;
         }
         if (num==2) {
-            fragment=new ListaReservas_Fragment();
+            fragment=listafragmentod.get(0);
+            fragment_select=true;
+        }
+        if (num==3) {
+            fragment=listafragmentod.get(1);
+            toolbar.setTitle(R.string.registrar_);
             fragment_select=true;
         }
         if(fragment_select==true){
@@ -176,15 +180,15 @@ import daudo.zamora.edison.bangbang.interfases.Opciones;
          @Override
          public void configUser(UsuarioBean usuario) {
              editorprefs=preferences.edit();
-             editorprefs.putBoolean("registrado",true);
+             editorprefs.putBoolean(getString(R.string.usuregistrado),true);
+             editorprefs.putString(getString(R.string.idusuario),Integer.toString(usuario.getId()).toString());
              editorprefs.putString(getString(R.string.nombreUsuario),usuario.getNombre().toString());
              editorprefs.putString(getString(R.string.correoUsuario),usuario.getCorreo().toString());
              editorprefs.putString(getString(R.string.passUsuario),usuario.getPass().toString());
-             editorprefs.putString(getString(R.string.idusuario),Integer.toString(usuario.getId()).toString());
              editorprefs.commit();
-             comfiguracion(preferences.getBoolean("Registrado",false));
+             comfiguracion(preferences.getBoolean(getString(R.string.usuregistrado),false));
          }
-         protected void  comfiguracion(boolean valor){
+              public void  comfiguracion(boolean valor){
                  if (valor==true) {
                      onCreateOptionsMenu(toolbar.getMenu());
                      View view = navigationView.getHeaderView(0);
@@ -196,10 +200,6 @@ import daudo.zamora.edison.bangbang.interfases.Opciones;
                      correo.setText(preferences.getString(getString(R.string.correoUsuario), ""));
                      navigationView.getMenu().removeItem(R.id.iciar_nav);
                      navigationView.getMenu().removeItem(R.id.registrar_nav);
-
-
-
-
                  }
          }
      }

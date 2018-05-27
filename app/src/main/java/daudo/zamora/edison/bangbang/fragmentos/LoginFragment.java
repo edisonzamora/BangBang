@@ -1,5 +1,6 @@
 package daudo.zamora.edison.bangbang.fragmentos;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -48,9 +49,7 @@ public class LoginFragment extends Fragment {
     private CheckBox recordar_usuario;
     private Button btn_aceptar;
     private TextView Signup;
-private StringRequest login;
-    SharedPreferences prefs;
-    // TODO: Rename and change types of parameters
+       // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
     private OnFragmentInteractionListener mListener;
@@ -95,13 +94,16 @@ private StringRequest login;
         Signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               ((Home)getContext()).selectFragmrnt(1);
+               ((Home)getContext()).selectFragmrnt(3);
             }
         });
         return view;
     }
 
     private void consulta() {
+       ProgressDialog dialpross=new ProgressDialog(getContext());
+        dialpross.setMessage("cargando..");
+        dialpross.show();
         String url=getString(R.string.urlhost)+"insert/loginusuario.php?mail="+edt_email.getText().toString()+"&pass="+edt_password.getText().toString();
         final JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, url, new Response.Listener<JSONObject>() {
 
@@ -123,17 +125,7 @@ private StringRequest login;
                         usuarioBean.setCorreo(usuario.optString("email_user").toString());
                         usuarioBean.setTelefono("");
                         usuarioBean.setPass(usuario.optString("pass_user").toString());
-                        Log.i("INFI","coneccion:"+conexion);
-                        Log.i("INFI","registrado:"+registrado);
-                        Log.i("INFI","id:"+Integer.toString(usuarioBean.getId()));
-                        Log.i("INFI","nombre:"+usuarioBean.getNombre());
-                        Log.i("INFI","apellido:"+usuarioBean.getApellido());
-                        Log.i("INFI","edad:"+usuarioBean.getFechanaciemoto());
-                        Log.i("INFI","sexo:"+usuarioBean.getSexo());
-                        Log.i("INFI","correo:"+usuarioBean.getCorreo());
-                        Log.i("INFI","pass:"+usuarioBean.getPass());
-
-                        ((Home)getContext()).selectFragmrnt(2);
+                        ((Home)getContext()).selectFragmrnt(1);
                         ((Home)getContext()).configUser(usuarioBean);
 
                     }else{
@@ -155,6 +147,7 @@ private StringRequest login;
             }
         });
         VolleyInstance.getvolleyInstance(getContext()).agregarAlRequestqueue(request);
+        dialpross.hide();
     }
 
     // TODO: Rename method, update argument and hook method into UI event

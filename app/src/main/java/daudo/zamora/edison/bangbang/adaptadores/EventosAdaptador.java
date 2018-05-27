@@ -2,7 +2,6 @@ package daudo.zamora.edison.bangbang.adaptadores;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 import daudo.zamora.edison.bangbang.R;
 import daudo.zamora.edison.bangbang.beans.EventoBean;
-import daudo.zamora.edison.bangbang.beans.Evento_BO;
 
 /**
  * Created by Edison Zamora on 29/03/2018.
@@ -27,9 +25,6 @@ public class EventosAdaptador extends RecyclerView.Adapter<EventosAdaptador.Even
     public static int i;
     private Context context;
 
-    /**
-     * constructor  del adaptador que recibe una lista de objetos Evento_BO
-     **/
     public EventosAdaptador(List<EventoBean> list, int i , Context context) {
         this.list = list;
         this.i = i;
@@ -53,17 +48,13 @@ public class EventosAdaptador extends RecyclerView.Adapter<EventosAdaptador.Even
     @Override
     public void onBindViewHolder(EventoVistaHolder eventoVistaHolderder, int position) {
         if (i == 1) {
-
-           // eventoVistaHolderder.imageView.setImageResource(list.get(position).getImagen());
             Glide.with(context).load(list.get(position).getImagen()).crossFade().centerCrop().into(eventoVistaHolderder.imageView);
             eventoVistaHolderder.textitulo.setText(list.get(position).getNombre());
             eventoVistaHolderder.fechaevento.setText(list.get(position).getFecha());
             eventoVistaHolderder.textcomentario.setText(list.get(position).getComentario());
             eventoVistaHolderder.ciudad.setText(list.get(position).getDireccion().getCiudad());
-
         }
         if (i == 2) {
-            //eventoVistaHolderder.imageView.setImageResource(list.get(position).getImagen());
             Glide.with(context).load(list.get(position).getImagen()).crossFade().centerCrop().into(eventoVistaHolderder.imageView);
             eventoVistaHolderder.textitulo.setText(list.get(position).getNombre());
             eventoVistaHolderder.fechaevento.setText(list.get(position).getComentario());

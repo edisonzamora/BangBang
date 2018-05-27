@@ -24,7 +24,7 @@ public class VolleyInstance {
 
     //  retorna el requestqueue
     // ambien singlenton
-    public RequestQueue getRetornaRequestQueue() {
+    private  RequestQueue getRetornaRequestQueue() {
         if(requestQueue==null) {
             requestQueue = Volley.newRequestQueue(context.getApplicationContext());
         }

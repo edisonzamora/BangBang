@@ -81,7 +81,7 @@ public class GridEventos_Fragment extends Fragment implements Response.Listener<
         lista=new ArrayList<>();
         recyclerView=(RecyclerView)view.findViewById(R.id.recyclerviewid);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(false);
         cargaLisat();
         return view;
     }
@@ -160,7 +160,6 @@ public class GridEventos_Fragment extends Fragment implements Response.Listener<
             dialpross.hide();
             eventosAdaptador = new EventosAdaptador(lista, 1, getContext());
             recyclerView.setAdapter(eventosAdaptador);
-
             eventosAdaptador.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

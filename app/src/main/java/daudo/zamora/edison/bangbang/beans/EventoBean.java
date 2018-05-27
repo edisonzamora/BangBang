@@ -65,9 +65,7 @@ public class EventoBean implements Serializable {
         this.imagen = imagen;
         this.direccion= new DireccionBean();
         this.fecha=fecha;
-
     }
-
     public EventoBean() {
         direccion=new DireccionBean();
     }

@@ -3,6 +3,7 @@ package daudo.zamora.edison.bangbang.fragmentos;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -43,6 +44,7 @@ public class ListaReservas_Fragment extends Fragment implements Response.Listene
     private ReservasAdaptador reservasAdaptador;
     private JsonObjectRequest request;
     private ProgressDialog dialpross;
+    private SharedPreferences datausuarios;
     private  int iduser;
 
 
@@ -83,7 +85,9 @@ public class ListaReservas_Fragment extends Fragment implements Response.Listene
         dialpross = new ProgressDialog(getContext());
         dialpross.setMessage("cargando..");
         dialpross.show();
-        String url=getString(R.string.urlhost)+"select/reservas.php?bang=reservas&id=2";
+        datausuarios=getContext().getSharedPreferences(getString(R.string.datosusuario),Context.MODE_PRIVATE);
+        String iduser=datausuarios.getString(getString(R.string.idusuario),"");
+        String url=getString(R.string.urlhost)+"select/reservas.php?bang=reservas&id="+iduser;
         request=new JsonObjectRequest(Request.Method.GET,url, (String) null,this,this);
         VolleyInstance.getvolleyInstance(getContext()).agregarAlRequestqueue(request);
 
@@ -103,29 +107,34 @@ public class ListaReservas_Fragment extends Fragment implements Response.Listene
             Log.i("BangBangInfo","numero de resevas "+Integer.toString(nunReservas));
 
             JSONArray array =response.optJSONArray("object");
-            Log.i("BangBangInfo","array valor reservas "+Integer.toString(array.length()));
             JSONObject object=null;
             ReservaBean reservaBean=null;
-            for (int x=0; x<array.length(); x++) {
-                object = array.getJSONObject(x);
-                reservaBean=new ReservaBean();
-                reservaBean.setId_reserva(object.optString("id_reservation").toString());
-                Log.i("BangBangInfo",object.optString("id_reservation").toString());
+            if (array!=null) {
+                for (int x = 0; x < array.length(); x++) {
+                    object = array.getJSONObject(x);
+                    reservaBean = new ReservaBean();
+                    reservaBean.setId_reserva(object.optString("id_reservation").toString());
+                    Log.i("BangBangInfo", object.optString("id_reservation").toString());
 
-                reservaBean.setId_usuario(object.getString("id_user").toString());
-                Log.i("BangBangInfo",object.optString("id_user").toString());
+                    reservaBean.setId_usuario(object.getString("id_user").toString());
+                    Log.i("BangBangInfo", object.optString("id_user").toString());
 
-                reservaBean.setNombre_evento(object.getString("name_event").toString());
-                Log.i("BangBangInfo",object.optString("name_event").toString());
+                    reservaBean.setNombre_evento(object.getString("name_event").toString());
+                    Log.i("BangBangInfo", object.optString("name_event").toString());
 
-                reservaBean.setFechaEvento( object.getString("date_event").toString());
-                Log.i("BangBangInfo",object.optString("date_event").toString());
+                    reservaBean.setFechaEvento(object.getString("date_event").toString());
+                    Log.i("BangBangInfo", object.optString("date_event").toString());
 
-                reservaBean.setFechaReserva(object.getString("date_reservation").toString());
-                Log.i("BangBangInfo",object.optString("date_reservation").toString());
+                    reservaBean.setFechaReserva(object.getString("date_reservation").toString());
+                    Log.i("BangBangInfo", object.optString("date_reservation").toString());
 
-                reservaBean.setImagen(object.getString("image_event").toString());
-                listareservas.add(reservaBean);
+                    reservaBean.setImagen(object.getString("image_event").toString());
+                    listareservas.add(reservaBean);
+                }
+            }else{
+                Toast.makeText(getContext(),"Sin veservas",Toast.LENGTH_SHORT).show();
+
+
             }
             dialpross.hide();
             reservasAdaptador=new ReservasAdaptador(listareservas,getContext());

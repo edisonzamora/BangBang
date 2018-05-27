@@ -15,8 +15,14 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
 import daudo.zamora.edison.bangbang.R;
 import daudo.zamora.edison.bangbang.beans.UsuarioBean;
+import daudo.zamora.edison.bangbang.reques.VolleyInstance;
 
 public class Registro_Fragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -132,6 +138,18 @@ public class Registro_Fragment extends Fragment {
 
     protected void callApi() {
         String url="";
+        StringRequest request=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        VolleyInstance.getvolleyInstance(getContext()).agregarAlRequestqueue(request);
     }
 // pequeña validacion para asegurarnos de que los datos no sean nulos
     protected boolean validaDatos(UsuarioBean usuario) {

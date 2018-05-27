@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="daudo.zamora.edison.bangbang.fragmentos.Ajustes_Fragment">
@@ -46,8 +45,8 @@
               />
       </LinearLayout>
       <Button
+          android:id="@+id/botn_cerrar_secion"
           style="@style/botones"
-          android:text="@string/cerrar"
           android:layout_width="match_parent"
           android:layout_height="wrap_content" />
 

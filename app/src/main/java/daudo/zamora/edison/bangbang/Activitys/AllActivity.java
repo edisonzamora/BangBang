@@ -74,12 +74,12 @@ public class AllActivity extends AppCompatActivity{
         ciudad.setText(eventoBean.getDireccion().getCiudad());
         eliminar = (Button) findViewById(R.id.boton_eliminar);
         confirmar = (Button) findViewById(R.id.boton_confirmar);
-confirmar.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        Toast.makeText(getApplicationContext(),"Reserva confirmada",Toast.LENGTH_SHORT).show();
-    }
-});
+        confirmar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(getApplicationContext(),"Reserva confirmada",Toast.LENGTH_SHORT).show();
+                    }
+                });
 
         eliminar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +96,7 @@ confirmar.setOnClickListener(new View.OnClickListener() {
                         Toast.makeText(getApplicationContext(),error.getMessage().toString(),Toast.LENGTH_LONG).show();
                     }
                 });
-                VolleyInstance.getvolleyInstance(getApplicationContext()).getRetornaRequestQueue().add(json);
+                VolleyInstance.getvolleyInstance(getApplicationContext()).agregarAlRequestqueue(json);
             }
 
 
