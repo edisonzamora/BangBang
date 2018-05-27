@@ -5,10 +5,38 @@
     android:layout_height="match_parent"
     tools:context=".fragmentos.info_Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="7dp"
+    android:layout_marginTop="10dp"
+    android:orientation="horizontal">
+    <Button
+        android:id="@+id/boton_infobang"
+        android:text="Sobre BANGBANG"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        style="@style/botones"
+       />
+
+
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="7dp"
+        android:layout_marginTop="70dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/boton_contacto"
+            android:text="Contacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/botones"
+            />
+
+
+
+    </LinearLayout>
 
 </FrameLayout>
