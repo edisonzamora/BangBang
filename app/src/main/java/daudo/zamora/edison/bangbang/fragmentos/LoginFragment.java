@@ -87,7 +87,12 @@ public class LoginFragment extends Fragment {
         btn_aceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                consulta();
+               if( validacion(edt_email.getText().toString(),edt_password.getText().toString())) {
+                   consulta();
+               }else{
+                  Toast.makeText(getContext(),"rellenar todos  los campos",Toast.LENGTH_LONG).show();
+
+               }
             }
         });
         Signup=(TextView) view.findViewById(R.id.tv_signup);
@@ -98,6 +103,15 @@ public class LoginFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    private boolean validacion(String s, String s1) {
+        if (!s.equalsIgnoreCase("")) {
+            if (!s1.equalsIgnoreCase("")){
+                return true;
+            }
+        }
+    return false;
     }
 
     private void consulta() {

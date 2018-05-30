@@ -15,11 +15,17 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import daudo.zamora.edison.bangbang.Home;
 import daudo.zamora.edison.bangbang.R;
 import daudo.zamora.edison.bangbang.beans.UsuarioBean;
 import daudo.zamora.edison.bangbang.reques.VolleyInstance;
@@ -37,6 +43,7 @@ public class Registro_Fragment extends Fragment {
     private Button boton;
     private String valorSexo;
     private UsuarioBean usuario;
+    private String nombre, apellido, sexo, edad , correo, pass;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -137,18 +144,56 @@ public class Registro_Fragment extends Fragment {
     }
 
     protected void callApi() {
-        String url="";
-        StringRequest request=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+        String url=getString(R.string.urlhost)+"insert/insertusuario.php";
+        final StringRequest request=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
+                if(response.trim().equalsIgnoreCase("registrado")){
+                    Toast.makeText(getContext(),response.toString(),Toast.LENGTH_LONG).show();
+
+                    ((Home)getContext()).selectFragmrnt(2);
+                }else {
+                    editText_nobre.setText("");
+                    editText_apellido.setText("");
+                    editTextedad.setText("");
+                    editText_correo.setText("");
+                    editText_pass.setText("");
+                    editTexttefelono.setText("");
+                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Toast.makeText(getContext(),error.toString(),Toast.LENGTH_LONG).show();
             }
-        });
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                 nombre=editText_nobre.getText().toString();
+                 apellido= editText_apellido.getText().toString();
+                 edad=editTextedad.getText().toString();
+                 sexo=valorSexo;
+                 correo=editText_correo.getText().toString();
+                 pass= editText_pass.getText().toString();
+                Log.i("INFORMACION", "NUEVO");
+                Log.i("INFORMACION", "NOMBRE:" + nombre);
+                Log.i("INFORMACION", "APELLIDO:" + apellido);
+                Log.i("INFORMACION", "edad:" + edad);
+                Log.i("INFORMACION", "SEXO:" + sexo);
+                Log.i("INFORMACION", "CORREO:" + correo);
+                Log.i("INFORMACION", "PASSWORD:" + pass);
+                Map<String, String> map=new HashMap<>();
+                map.put("nombre",nombre);
+                map.put("apellido",apellido);
+                map.put("edad",edad);
+                map.put("sex",sexo);
+                map.put("mail",correo);
+                map.put("pass",pass);
+                return map;
+            }
+        };
         VolleyInstance.getvolleyInstance(getContext()).agregarAlRequestqueue(request);
     }
 // pequeña validacion para asegurarnos de que los datos no sean nulos

@@ -43,7 +43,8 @@
         </activity>
         <activity android:name=".Activitys.Infobang" />
         <activity android:name=".Activitys.ContactoActivity" />
-        <activity android:name=".Activitys.SplashActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".Activitys.SplashActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
