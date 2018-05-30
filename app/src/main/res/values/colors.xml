@@ -5,8 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorBlano">#FFFFFF</color>
     <color name="colorRojo">#FF0000</color>
-    <color name="colornegro">#060606</color>
-    <color name="colormostaza">#008B8B</color>
-    <color name="lila">#5F11B4</color>
-    <color name="hueso">#CAC6CE</color>
+    <color name="colorNegro">#000</color>
 </resources>

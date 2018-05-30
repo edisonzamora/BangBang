@@ -17,107 +17,23 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
     <!-- estilo de los textos  de la aplicacion -->
-    <style name="style_Titulo_reservas">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">30dp</item>
-        <item name="android:textSize">20dp</item>
-        <item name="android:text">"tilulo"</item>
-    </style>
-    <style name="style_Titulo_eventos">
+    <style name="style_text">
+        <item name="android:textSize">30dp</item>
+        <item name="android:fontFamily">cursive</item>
         <item name="android:textColor">@color/colorBlano</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">20dp</item>
-        <item name="android:text">texto</item>
     </style>
-    <style name="style_fecha">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">17dp</item>
-        <item name="android:fontFamily">casual</item>
-    </style>
-    <style name="style_comentario_evento">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">17dp</item>
-        <item name="android:fontFamily">casual</item>
-        <item name="android:textColor">@color/colorBlano</item>
-        <item name="android:gravity">center</item>
-    </style>
-    <style name="style_layout_list_reservas" parent="style_layout">
-    </style>
-    <style name="style_layout">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-    <style name="style_layout_2">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-    </style>
-
     <style name="botones">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:background">@drawable/efecto_botones</item>
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@color/colorPrimary</item>
         <item name="android:textColor">@color/colorBlano</item>
-
+        <item name="android:layout_weight">1</item>
     </style>
-    <style name="style_icon">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-
-    </style>
-    <style name="content_text_email" parent="content_text">
-    <item name="android:hint">@string/email</item>
-    <item name="android:drawableLeft">@drawable/email</item>
-        <item name="android:inputType">textEmailAddress</item>
-    </style>
-    <style name="content_text_pass" parent="content_text">
-        <item name="android:hint">@string/contraseña</item>
-        <item name="android:drawableLeft">@drawable/clave2</item>
-        <item name="android:inputType">textPassword</item>
-    </style>
-
-    <style name="CheckBoxIndigo" parent="content_text">
-
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:textColor">@color/colorBlano</item>
-
-    </style>
-    <style name="RdaidoButon">
+    <style name="chechbox">
        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@drawable/radio_text_selected</item>
-    </style>
-<style name="content_text">
-    <item name="android:layout_width">match_parent</item>
-    <item name="android:layout_height">50dp</item>
-    <item name="android:background">@drawable/signup</item>
 
-
-</style>
-    <style name="context_titulo">
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:text">¿Qué es BANGBANG?</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">#B93FB7</item>
-        <item name="android:textSize">25dp</item>
-    </style>
-
-    <style name="context_contacto">
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:text">Contacto</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">#B93FB7</item>
-        <item name="android:textSize">25dp</item>
     </style>
 
 
-
-
-//cambio 1
 </resources>

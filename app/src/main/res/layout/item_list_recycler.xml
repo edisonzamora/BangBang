@@ -5,29 +5,39 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="2dp"
-    android:background="@color/colornegro"
+    android:background="@color/colorNegro"
     android:gravity="center">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:padding="2dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
         android:background="@drawable/efecto_itens_menu">
         <ImageView
-            android:layout_margin="5dp"
-            android:id="@+id/imagen_e"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:id="@+id/imagen_recycler"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:src="@mipmap/ic_launcher"
             android:scaleType="center"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-                <TextView android:id="@+id/titulo_recycler_e"
-                style="@style/style_Titulo_eventos"/>
-
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/titulo_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="titulo"
+                style="@style/style_text"/>
+            <TextView
+                android:id="@+id/comentario_recycler"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="comentario hacerca del evento"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

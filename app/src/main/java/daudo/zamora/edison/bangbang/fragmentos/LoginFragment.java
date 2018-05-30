@@ -1,42 +1,28 @@
 package daudo.zamora.edison.bangbang.fragmentos;
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
-import android.util.JsonReader;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.ImageView;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.Map;
-
-import daudo.zamora.edison.bangbang.Activitys.AllActivity;
-import daudo.zamora.edison.bangbang.Home;
 import daudo.zamora.edison.bangbang.R;
-import daudo.zamora.edison.bangbang.beans.UsuarioBean;
-import daudo.zamora.edison.bangbang.reques.VolleyInstance;
 
+/**
+ * A simple {@link Fragment} subclass.
+ * Activities that contain this fragment must implement the
+ * {@link LoginFragment.OnFragmentInteractionListener} interface
+ * to handle interaction events.
+ * Use the {@link LoginFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
 public class LoginFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -48,15 +34,26 @@ public class LoginFragment extends Fragment {
     private EditText edt_password;
     private CheckBox recordar_usuario;
     private Button btn_aceptar;
-    private TextView Signup;
-       // TODO: Rename and change types of parameters
+
+    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    long a;// cambio
+
     private OnFragmentInteractionListener mListener;
 
     public LoginFragment() {
         // Required empty public constructor
     }
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment LoginFragment.
+     */
     // TODO: Rename and change types and number of parameters
     public static LoginFragment newInstance(String param1, String param2) {
         LoginFragment fragment = new LoginFragment();
@@ -75,101 +72,28 @@ public class LoginFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-      /**aqui se le dara los eventos a los botones**/
+/**aqui se le dara los eventos a los botones**/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        /** Inflamos el layout  de este fragmento  fragment **/
         View view=inflater.inflate(R.layout.fragment_login, container, false);
-        edt_email=(EditText)view.findViewById(R.id.ed_email);
+       //lo unico es que he quitado el imagen no hace falta
+        edt_email=(EditText)view.findViewById(R.id.ed_email);//he cambiado para email
         edt_password=(EditText)view.findViewById(R.id.ed_Pass);
         recordar_usuario=(CheckBox)view.findViewById(R.id.chb_recordar_usuario);
-        btn_aceptar=(Button)view.findViewById(R.id.btn_login_aceptar);
-        btn_aceptar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               if( validacion(edt_email.getText().toString(),edt_password.getText().toString())) {
-                   consulta();
-               }else{
-                  Toast.makeText(getContext(),"rellenar todos  los campos",Toast.LENGTH_LONG).show();
+        btn_aceptar=(Button)view.findViewById(R.id.btn_login_aceptar);//está hecho el cambio
 
-               }
-            }
-        });
-        Signup=(TextView) view.findViewById(R.id.tv_signup);
-        Signup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               ((Home)getContext()).selectFragmrnt(3);
-            }
-        });
         return view;
     }
-
-    private boolean validacion(String s, String s1) {
-        if (!s.equalsIgnoreCase("")) {
-            if (!s1.equalsIgnoreCase("")){
-                return true;
-            }
-        }
-    return false;
-    }
-
-    private void consulta() {
-       ProgressDialog dialpross=new ProgressDialog(getContext());
-        dialpross.setMessage("cargando..");
-        dialpross.show();
-        String url=getString(R.string.urlhost)+"insert/loginusuario.php?mail="+edt_email.getText().toString()+"&pass="+edt_password.getText().toString();
-        final JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, url, new Response.Listener<JSONObject>() {
-
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    String conexion=response.getString("connect").toString();
-                    String registrado=response.getString("registrado");
-                    if(registrado.equalsIgnoreCase("si")){
-                        Toast.makeText(getContext(),"registrado",Toast.LENGTH_SHORT).show();
-                        JSONArray valores=response.getJSONArray("usuario");
-                        JSONObject usuario=valores.getJSONObject(0);
-                        UsuarioBean usuarioBean=new UsuarioBean();
-                        usuarioBean.setId(Integer.parseInt(usuario.optString("id_user").toString()));
-                        usuarioBean.setNombre(usuario.optString("name_user").toString());
-                        usuarioBean.setApellido(usuario.optString("last_name_user").toString());
-                        usuarioBean.setFechanaciemoto(usuario.optString("age_user").toString());
-                        usuarioBean.setSexo(usuario.optString("sex_user").toString());
-                        usuarioBean.setCorreo(usuario.optString("email_user").toString());
-                        usuarioBean.setTelefono("");
-                        usuarioBean.setPass(usuario.optString("pass_user").toString());
-                        ((Home)getContext()).selectFragmrnt(1);
-                        ((Home)getContext()).configUser(usuarioBean);
-
-                    }else{
-
-                        Toast.makeText(getContext(),"No Registrado",Toast.LENGTH_SHORT).show();
-
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getContext(),"Error de conexion"+error.toString(),Toast.LENGTH_SHORT).show();
-
-            }
-        });
-        VolleyInstance.getvolleyInstance(getContext()).agregarAlRequestqueue(request);
-        dialpross.hide();
-    }
-
+//no he cambiado nada aun
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
     }
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -186,7 +110,19 @@ public class LoginFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * <p>
+     * See the Android Training lesson <a href=
+     * "http://developer.android.com/training/basics/fragments/communicating.html"
+     * >Communicating with Other Fragments</a> for more information.
+     */
     public interface OnFragmentInteractionListener {
+
         void onFragmentInteraction(Uri uri);
     }
 }

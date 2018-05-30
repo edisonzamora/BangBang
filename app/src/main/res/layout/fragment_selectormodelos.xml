@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="daudo.zamora.edison.bangbang.fragmentos.SelectorModelos_Fragment">
+    android:orientation="horizontal">
+    <Button
+        android:id="@+id/bnt_lista"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_lista"
+        android:background="@drawable/efecto_botones"/>
+    <Button
+        android:layout_weight="1"
+        android:id="@+id/bnt_grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_grid"
+        android:background="@drawable/efecto_botones"/>
+
+</android.support.v7.widget.LinearLayoutCompat>
