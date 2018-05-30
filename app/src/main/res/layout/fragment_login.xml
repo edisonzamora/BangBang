@@ -1,71 +1,38 @@
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@drawable/fondo3"
+    android:gravity="center"
     tools:context="daudo.zamora.edison.bangbang.fragmentos.LoginFragment">
     <LinearLayout
-        android:paddingTop="100dp"
+       android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
-        <LinearLayout
+        <EditText
+            android:id="@+id/ed_email"
+            style="@style/content_text_email"/>
+        <EditText
+            android:id="@+id/ed_Pass"
+            style="@style/content_text_pass"/>
+        <CheckBox
+            android:id="@+id/chb_recordar_usuario"
+             style="@style/content_text"
+            android:hint="@string/recordar"/>
+        <Button
+           android:id="@+id/btn_login_aceptar"
+            style="@style/botones"
+            android:text="@string/login_1"/>
+        <TextView
+            android:id="@+id/tv_signup"
+            android:padding="19dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
-            <ImageView
-                android:id="@+id/login_imagen"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher_round"/>
-            <LinearLayout
-                android:id="@+id/linea_nombre"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="@string/nombre"
-                    android:gravity="center"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:id="@+id/ed_email"
-                    android:hint="@string/nombre"
-                     />
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/linea_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="@string/contraseña"
-                    android:gravity="center"/>
-                <EditText
-                    android:id="@+id/ed_Pass"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:hint="@string/contraseña"
-                    android:gravity="center"
-                    android:inputType="textPassword"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <CheckBox
-                    android:id="@+id/chb_recordar_usuario"
-                    android:text="@string/recordar_usuario"
-                    style="@style/chechbox"/>
-            </LinearLayout>
-            <Button
-                android:id="@+id/btn_login_aceptar"
-                android:text="@string/btn_aceptar"
-                style="@style/botones"/>
-        </LinearLayout>
-
+            android:layout_height="match_parent"
+            android:text="@string/registrar_1"
+            android:textSize="20dp"
+            android:textColor="#fff"
+            android:gravity="center"/>
     </LinearLayout>
-</RelativeLayout>
+</LinearLayout>

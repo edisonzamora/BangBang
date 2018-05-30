@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="context_texto">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:text">Con el App Bangbang podrá el usuario organizarse aún mejor para
+            que no pase apuros a la hora de salir buscar salas de fiesta.
+            Bangbang traerá facilidad para la vida nocturna, pudiendo el usuario apuntarse a lista
+            de la discoteca, además de poder elegir por fechas al evento preferible.
+            No obstante, el usuario podrá disfrutar de una reserva VIP si así lo desea, un espacio
+            reservado con su debido conforto a la hora de bailar y también Bangbang garantizará la
+            primera botella de inicio de noche con solo apuntándose a nuestra “Reserva Vip”,
+            pudiendo en el App pagar, además con los descuentos que estará disponible para cada
+            usuario Bangbang.
+            El objetivo de nuestra app es brindar una experiencia de usuario, agradable, fácil de
+            usar, y muy útil.
+            Nuestra app está enfocada a todas las personas que le gusta pasárselo bien en los
+            lugares más exóticos de nuestra ciudad, con las mejores promociones, servicios al
+            cliente y sobre todas las mejores salas de diversiones nocturnas.
+        </item>
+        <item name="android:layout_marginTop">50dp</item>
+        <item name="android:textColor">#909497</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textAlignment">inherit</item>
+    </style>
+</resources>

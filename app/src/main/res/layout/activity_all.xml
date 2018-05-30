@@ -1,13 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/style_layout_2"
+    android:orientation="vertical"
     tools:context="daudo.zamora.edison.bangbang.Activitys.AllActivity">
-    <include layout="@layout/app_bar_home"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
-</android.support.constraint.ConstraintLayout>
+    <include
+        style="@style/style_layout"
+        layout="@layout/app_bar_home" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        style="@style/style_layout_2"
+        android:background="@color/colorBlano"
+        android:orientation="vertical"
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/image_reser_car"
+            style="@style/style_layout"
+            android:layout_height="300dp"
+            android:padding="20dp"
+            android:src="@mipmap/ic_launcher" />
+        <TextView
+            android:id="@+id/reser_nombre_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBlano"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="nombre del evento" />
+        <LinearLayout
+            style="@style/style_layout_2"
+            android:background="@color/colorBlano"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Fecha  Reserva :" />
+
+                <TextView
+                    android:id="@+id/reser_fecha_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="fecha de la reserva " />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_date_range_black_24dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:gravity="left"
+                    android:padding="10dp"
+                    android:text="Calle: " />
+
+                <TextView
+                    android:id="@+id/reser_calle_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:padding="10dp"
+                    android:text="nombre  de la calle" />
+
+                <TextView
+                    android:id="@+id/reser_numero_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:padding="10dp"
+                    android:text="numero de la calle" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/reser_cp_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="codido postal: " />
+
+                <TextView
+                    android:id="@+id/reser_ciudad_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="ciudad" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_location_on_black_24dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/boton_confirmar"
+                    style="@style/botones"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="confirmar reserva " />
+
+                <Button
+                    android:id="@+id/boton_eliminar"
+                    style="@style/botones"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="eliminar" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

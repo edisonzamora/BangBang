@@ -1,15 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="daudo.zamora.edison.bangbang.fragmentos.Ajustes_Fragment">
-    <TextView
-        android:id="@+id/text_confi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="configuraciones"/>
+  <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:padding="10dp">
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:gravity="center"
+          android:padding="20dp">
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Notificaciones" />
+          <Switch
+              android:id="@+id/notificacion"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:buttonTint="@color/colorAccent"
+             />
+      </LinearLayout>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:gravity="center"
+          android:padding="20dp">
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Permisos de ajustes" />
+          <Switch
+              android:id="@+id/permiso"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:buttonTint="@color/colorAccent"
+              />
+      </LinearLayout>
+      <Button
+          android:id="@+id/botn_cerrar_secion"
+          style="@style/botones"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />
+
+  </LinearLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+
+
+</LinearLayout>

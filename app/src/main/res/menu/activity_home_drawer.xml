@@ -3,22 +3,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single"
+        android:id="@+id/itemss">
         <item
-            android:id="@+id/principal"
+            android:id="@+id/principal_nav"
             android:icon="@drawable/ic_home_black_24dp"
-            android:title="@string/Principal" />
+            android:title="@string/principal" />
         <item
-            android:id="@+id/lista"
+            android:id="@+id/lista_nav"
             android:icon="@drawable/ic_list_black_24dp"
             android:title="@string/lista" />
         <item
-            android:id="@+id/ajustes"
+            android:id="@+id/iciar_nav"
+            android:icon="@drawable/ic_sentiment_satisfied_black_24dp"
+            android:title="@string/inciar" />
+        <item
+            android:id="@+id/registrar_nav"
+            android:icon="@drawable/ic_mood_black_24dp"
+            android:title="@string/registrar_" />
+        <item
+            android:id="@+id/ajustes_nav"
             android:icon="@drawable/ic_settings_black_24dp"
             android:title="@string/ajustes" />
         <item
-            android:id="@+id/cerrar_secion"
-            android:icon="@drawable/ic_close_black_24dp"
-            android:title="@string/cerrar" />
+            android:id="@+id/info_nav"
+            android:icon="@drawable/ic_info_black_24dp"
+            android:title="@string/informacion" />
+
     </group>
 </menu>

@@ -7,28 +7,27 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import java.util.ArrayList;
-import java.util.List;
-
 import daudo.zamora.edison.bangbang.Activitys.InformacionActivity;
 import daudo.zamora.edison.bangbang.R;
 import daudo.zamora.edison.bangbang.adaptadores.EventosAdaptador;
-import daudo.zamora.edison.bangbang.beans.Evento_BO;
+import daudo.zamora.edison.bangbang.beans.EventoBean;
+import daudo.zamora.edison.bangbang.reques.VolleyInstance;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link ListaEventos_Fragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link ListaEventos_Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class ListaEventos_Fragment extends Fragment  {
+
+public class ListaEventos_Fragment extends Fragment implements Response.Listener<JSONObject>,Response.ErrorListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -39,21 +38,14 @@ public class ListaEventos_Fragment extends Fragment  {
     // TODO: variables  de oncreateview
     private OnFragmentInteractionListener mListener;
     private RecyclerView recyclerView;
-    private ArrayList<Evento_BO>listaeventos;
+    private ArrayList<EventoBean>listaeventos;
     private EventosAdaptador eventosAdaptador;
+    private EventoBean evento;
+   private  JsonObjectRequest request;
 
     public ListaEventos_Fragment() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ListaEventos_Fragment.
-     */
     // TODO: Rename and change types and number of parameters
     public static ListaEventos_Fragment newInstance(String param1, String param2) {
         ListaEventos_Fragment fragment = new ListaEventos_Fragment();
@@ -77,25 +69,83 @@ public class ListaEventos_Fragment extends Fragment  {
         /**inflamos el fragmento con el layout**/
         View view=inflater.inflate(R.layout.fragment_lista_eventos_, container, false);
         listaeventos=new ArrayList<>();
-        cargar_lista(listaeventos);
         recyclerView=(RecyclerView)view.findViewById(R.id.recyclerviewid);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        eventosAdaptador=new EventosAdaptador(listaeventos,2,getContext());
-        eventosAdaptador.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText( getContext(),"evento: "+listaeventos.get(recyclerView.getChildAdapterPosition(v)).getNombre(),Toast.LENGTH_LONG).show();
-                Intent intent=new Intent(getContext(), InformacionActivity.class);
-                Evento_BO evento_bo= listaeventos.get(recyclerView.getChildAdapterPosition(v));
-                intent.putExtra("informacion",evento_bo);
-                startActivity(intent);
-
-            }
-        });
-        recyclerView.setAdapter(eventosAdaptador);
+        recyclerView.setHasFixedSize(true);
+        cargaLisat();
         return view;
     }
+
+    private void cargaLisat() {
+        String url="http://bangbanghome.000webhostapp.com/api/v1/select/events.php?bang=events";
+        request=new JsonObjectRequest(Request.Method.GET,url,this,this);
+        VolleyInstance.getvolleyInstance(getContext()).agregarAlRequestqueue(request);
+    }
+    @Override
+    public void onErrorResponse(VolleyError error) {
+        Toast.makeText(getContext(),"error sin eventos" + error.getMessage().toString(),Toast.LENGTH_SHORT).show();
+        Log.e("error",error.getMessage().toString());
+    }
+
+    @Override
+    public void onResponse(JSONObject response) {
+        try {
+            int coneccion = response.getInt("connect");
+            int numEventos= response.getInt("num");
+
+            Log.i("BangBangInfo","coneccion"+Integer.toString(coneccion));
+            Log.i("BangBangInfo","numero de eventos "+Integer.toString(numEventos));
+
+            JSONArray array =response.optJSONArray("object");
+            Log.i("BangBangInfo","array valor eventos: "+Integer.toString(array.length()));
+            JSONObject object=null;
+            EventoBean eventosBean=null;
+            for(int x=0; x<array.length(); x++){
+                object = array.getJSONObject(x);
+                eventosBean=new EventoBean();
+                eventosBean.setId_evento(object.optString("id_event").toString());
+                Log.i("BangBangInfo",object.optString("id_event").toString());
+
+                eventosBean.setNombre(object.getString("name_event").toString());
+                Log.i("BangBangInfo",object.optString("name_event").toString());
+
+                eventosBean.setFecha(object.getString("date_event").toString());
+                Log.i("BangBangInfo",object.optString("date_event").toString());
+
+                eventosBean.setImagen("http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6");
+                 if(object.getString("coment_event")==null){
+
+                     eventosBean.setComentario("");
+                 }else{
+                     eventosBean.setComentario(object.getString("coment_event").toString());
+                     Log.i("BangBangInfo",object.optString("coment_event").toString());
+                 }
+
+
+                listaeventos.add(eventosBean);
+            }
+            eventosAdaptador = new EventosAdaptador(listaeventos, 2, getContext());
+            recyclerView.setAdapter(eventosAdaptador);
+            eventosAdaptador.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Toast.makeText(getContext(), "evento: " + listaeventos.get(recyclerView.getChildAdapterPosition(v)).getNombre(), Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getContext(), InformacionActivity.class);
+                    evento = listaeventos.get(recyclerView.getChildAdapterPosition(v));
+                    intent.putExtra("informacion", evento);
+                    startActivity(intent);
+
+                }
+            });
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+            e.printStackTrace();
+            Log.e("ERROR","jSON EXCEPTION  null" + e.getMessage().toString());
+        }
+    }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -119,24 +169,9 @@ public class ListaEventos_Fragment extends Fragment  {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 
-    public static void cargar_lista(List lista) {
-        lista.add(new Evento_BO(1,"fiesta 1","bunea fiesta","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
-        lista.add(new Evento_BO(2,"fiesta 2","bunea fiesta","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
-        lista.add(new Evento_BO(3,"fiesta 3","bunea fiesta","http://drive.google.com/uc?export=view&id=1bskJCXbyN47njgtrbJt4ppATOMPCwHg6"));
-    }
 }

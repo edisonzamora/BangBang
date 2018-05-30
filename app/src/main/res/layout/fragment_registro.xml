@@ -1,151 +1,118 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/disco2"
+    android:gravity="center"
     tools:context="daudo.zamora.edison.bangbang.fragmentos.Registro_Fragment">
+//combio3
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+    <TextView
+       android:padding="45dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/sep_up"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:textColor="#fff"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="5dp">
-        <TextView
+        android:padding="3dp">
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Datos Registro"
-            android:gravity="center"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="3dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="@string/nombre" />
-            <EditText
-                android:id="@+id/edt_reg_nombre"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:gravity="center"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="3dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="Apellido"/>
-            <EditText
-                android:id="@+id/edt_reg_apellido"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:gravity="center"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="3dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="Correo"/>
-            <EditText
-                android:id="@+id/edt_reg_correo"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:gravity="center"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="3dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="Password"/>
-            <EditText
-                android:id="@+id/edt_reg_pass"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:inputType="textPassword"
-                android:layout_gravity="center"
-                android:gravity="center"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="3dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="Reprtit password"/>
-            <EditText
-                android:id="@+id/edt_reg_repe_pass"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:inputType="textPassword"
-                android:layout_gravity="center"
-                android:gravity="center"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="3dp">
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="Ciudad"/>
-           <Spinner
-               android:id="@+id/spiner_reg_ciudad"
-               android:layout_weight="1"
-               android:layout_width="0dp"
-               android:layout_height="40dp"
-               android:entries="@array/ciudades"
-               android:layout_gravity="center"
-               android:gravity="center"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="3dp">
-            <CheckBox
-                android:id="@+id/checkbox_registro"
-                style="@style/chechbox"
-                android:text="Soy mayor de ediad"/>
-        </LinearLayout>
-        <LinearLayout
+            android:layout_height="wrap_content">
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+        <EditText
+            android:id="@+id/nombre_uruario"
+            style="@style/content_text"
+            android:drawableLeft="@drawable/name"
+            android:hint="@string/usuario" />
+
+
+
+
+
+              <EditText
+                  android:id="@+id/apellido_usuario"
+                  style="@style/content_text"
+                  android:layout_height="wrap_content"
+                  android:drawableLeft="@drawable/name"
+                  android:hint="@string/apellido" />
+
+        <EditText
+            android:id="@+id/edad"
+            style="@style/content_text"
+            android:drawableLeft="@drawable/ic_perm_contact_calendar"
+            android:hint="Edad"
+            android:inputType="number" />
+
+        <RadioGroup
+            android:id="@+id/radiogroup"
+            style="@style/content_text"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="3dp"
             android:orientation="horizontal">
-            <Button
-                android:id="@+id/btn_registro_aceptar"
-                style="@style/botones"
-                android:text="@string/btn_aceptar"/>
-            <Button
-                android:id="@+id/btn_registro_camcelar"
-                style="@style/botones"
-                android:text="@string/btn_camcelar"/>
 
-        </LinearLayout>
+            <RadioButton
+                android:id="@+id/radioButton1"
+                style="@style/RdaidoButon"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:buttonTint="@color/colorAccent"
+                android:hint="@string/hombre" />
+            <RadioButton
+                android:id="@+id/radioButton2"
+                style="@style/RdaidoButon"
+                android:hint="@string/mujer"
+                android:buttonTint="@color/colorAccent"/>
+        </RadioGroup>
 
+        <EditText
+            android:id="@+id/telefono"
+            style="@style/content_text"
+            android:drawableLeft="@drawable/ic_phone_in_talk"
+            android:hint="@string/telefono"
+            android:inputType="phone"/>
+
+        <EditText
+            android:id="@+id/email_usuario"
+            style="@style/content_text_email"
+            android:background="@drawable/signup"
+            android:drawableLeft="@drawable/email"
+            android:inputType="textEmailAddress"/>
+
+        <EditText
+            android:id="@+id/password_usuario"
+     style="@style/content_text_pass"
+
+            android:drawableLeft="@drawable/clave2"
+            android:hint="@string/pass"
+            android:inputType="textPassword"
+     />
+
+        <CheckBox
+            android:id="@+id/chech_config"
+           style="@style/CheckBoxIndigo"
+            android:hint="By continuing, I accept Terms and Conditions and the Privacy Policy"
+            android:textSize="10dp"
+            android:buttonTint="@color/colorAccent"
+           />
+        <Button
+            android:id="@+id/boton_reg"
+            style="@style/botones"
+            android:text="@string/sep_up" />
+          </LinearLayout>
+        </ScrollView>
     </LinearLayout>
-
-</FrameLayout>
+   </LinearLayout>
+</RelativeLayout>
